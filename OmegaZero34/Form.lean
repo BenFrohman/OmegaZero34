@@ -1,8 +1,10 @@
 /-
 Copyright (c) 2026 Benjamin Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Frohman
 -/
 import OmegaZero34.Matrices
+import OmegaZero34.ForMathlib.SkewFour
 import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
 /-!
@@ -23,12 +25,10 @@ open Matrix
 
 namespace OmegaZero34
 
-/-- The lattice-level tether form.
+/-- Primitive integral generator of the tether restricted to this lattice.
 
-This matrix *is* the tether on the \((3,4,\infty)\) representation: the
-unique (up to scalar) monodromy-invariant alternating pairing. It is not
-the unipotent logarithm \(N\), and it is not the Pfaffian scalar
-\(\mathrm{Pf}(\Omega_0)=6\). Those are derived invariants of this form.
+A Frohmanian tether restricts here to `λ • Ω0`. This matrix is that form,
+not the cusp logarithm `N` and not the Pfaffian `Pf(Ω0) = 6`.
 -/
 def Ω0 : Matrix (Fin 4) (Fin 4) ℤ :=
   !![ 0,  0,  0,  1;
@@ -44,31 +44,27 @@ def Ω0R {R : Type*} [CommRing R] : Matrix (Fin 4) (Fin 4) R :=
 
 lemma Ω0_eq_Ω0R : Ω0 = Ω0R := rfl
 
-/-- General element of the 6-dimensional space of \(4\times 4\) skew matrices. -/
-def ofParams {R : Type*} [CommRing R] (a b c d e f : R) : Matrix (Fin 4) (Fin 4) R :=
-  !![ 0,  a,  b,  c;
-     -a,  0,  d,  e;
-     -b, -d,  0,  f;
-     -c, -e, -f,  0]
+/-- Paper name for the generic 4×4 skew matrix (`Matrix.skewFour`, ForMathlib). -/
+abbrev ofParams {R : Type*} [CommRing R] := skewFour (R := R)
 
 lemma Ω0_eq_ofParams : Ω0 = ofParams (0 : ℤ) 0 1 6 0 0 := by
   ext i j
-  fin_cases i <;> fin_cases j <;> simp [Ω0, ofParams]
+  fin_cases i <;> fin_cases j <;> simp [Ω0, ofParams, skewFour]
 
 lemma Ω0R_eq_ofParams {R : Type*} [CommRing R] :
     Ω0R (R := R) = ofParams (0 : R) 0 1 6 0 0 := by
   ext i j
-  fin_cases i <;> fin_cases j <;> simp [Ω0R, ofParams]
+  fin_cases i <;> fin_cases j <;> simp [Ω0R, ofParams, skewFour]
 
 lemma ofParams_skew {R : Type*} [CommRing R] (a b c d e f : R) :
-    (ofParams a b c d e f)ᵀ = -(ofParams a b c d e f) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [ofParams, Matrix.neg_apply]
+    (ofParams a b c d e f)ᵀ = -(ofParams a b c d e f) :=
+  skewFour_transpose a b c d e f
 
 lemma Ω0_skew : Ω0ᵀ = -Ω0 := by native_decide
 
-/-- Pfaffian of a 4×4 skew matrix in the coordinates \((a,b,c,d,e,f)\). -/
-def pfaffian4 {R : Type*} [CommRing R] (a b c d e f : R) : R := a * f - b * e + c * d
+/-- Paper name for `Matrix.pfaffianFour`. `Pf(Ω0) = 6` is a scalar of the form,
+not the tether. -/
+abbrev pfaffian4 {R : Type*} [CommRing R] := pfaffianFour (R := R)
 
 lemma Ω0_pfaffian : pfaffian4 (0 : ℤ) 0 1 6 0 0 = 6 := by native_decide
 
@@ -91,37 +87,28 @@ lemma Ω0_u_delta : Ω0 1 3 = 0 := rfl
 lemma Ω0_w_delta : Ω0 2 3 = 0 := rfl
 
 lemma ofParams_apply_01 {R : Type*} [CommRing R] (a b c d e f : R) :
-    ofParams a b c d e f 0 1 = a := by simp [ofParams]
+    ofParams a b c d e f 0 1 = a := skewFour_apply_01 a b c d e f
 lemma ofParams_apply_02 {R : Type*} [CommRing R] (a b c d e f : R) :
-    ofParams a b c d e f 0 2 = b := by simp [ofParams]
+    ofParams a b c d e f 0 2 = b := skewFour_apply_02 a b c d e f
 lemma ofParams_apply_03 {R : Type*} [CommRing R] (a b c d e f : R) :
-    ofParams a b c d e f 0 3 = c := by simp [ofParams]
+    ofParams a b c d e f 0 3 = c := skewFour_apply_03 a b c d e f
 lemma ofParams_apply_12 {R : Type*} [CommRing R] (a b c d e f : R) :
-    ofParams a b c d e f 1 2 = d := by simp [ofParams]
+    ofParams a b c d e f 1 2 = d := skewFour_apply_12 a b c d e f
 lemma ofParams_apply_13 {R : Type*} [CommRing R] (a b c d e f : R) :
-    ofParams a b c d e f 1 3 = e := by simp [ofParams]
+    ofParams a b c d e f 1 3 = e := skewFour_apply_13 a b c d e f
 lemma ofParams_apply_23 {R : Type*} [CommRing R] (a b c d e f : R) :
-    ofParams a b c d e f 2 3 = f := by simp [ofParams]
+    ofParams a b c d e f 2 3 = f := skewFour_apply_23 a b c d e f
 
-lemma ofParams_injective {R : Type*} [CommRing R] (a b c d e f a' b' c' d' e' f' : R) :
+lemma ofParams_injective {R : Type*} [CommRing R]
+    (a b c d e f a' b' c' d' e' f' : R) :
     ofParams a b c d e f = ofParams a' b' c' d' e' f' ↔
-      a = a' ∧ b = b' ∧ c = c' ∧ d = d' ∧ e = e' ∧ f = f' := by
-  constructor
-  · intro h
-    refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
-    · simpa [ofParams] using congr_fun (congr_fun h 0) 1
-    · simpa [ofParams] using congr_fun (congr_fun h 0) 2
-    · simpa [ofParams] using congr_fun (congr_fun h 0) 3
-    · simpa [ofParams] using congr_fun (congr_fun h 1) 2
-    · simpa [ofParams] using congr_fun (congr_fun h 1) 3
-    · simpa [ofParams] using congr_fun (congr_fun h 2) 3
-  · rintro ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
-    rfl
+      a = a' ∧ b = b' ∧ c = c' ∧ d = d' ∧ e = e' ∧ f = f' :=
+  skewFour_injective a b c d e f a' b' c' d' e' f'
 
 lemma ofParams_smul {R : Type*} [CommRing R] (r a b c d e f : R) :
-    r • ofParams a b c d e f = ofParams (r * a) (r * b) (r * c) (r * d) (r * e) (r * f) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [ofParams, Matrix.smul_apply]
+    r • ofParams a b c d e f =
+      ofParams (r * a) (r * b) (r * c) (r * d) (r * e) (r * f) :=
+  skewFour_smul r a b c d e f
 
 lemma ofParams_c_six {R : Type*} [CommRing R] (c : R) :
     ofParams (0 : R) 0 c (6 * c) 0 0 = c • Ω0R := by

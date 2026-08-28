@@ -1,3 +1,5 @@
+import OmegaZero34.ForMathlib.MulFinFour
+import OmegaZero34.ForMathlib.SkewFour
 import OmegaZero34.Matrices
 import OmegaZero34.Form
 import OmegaZero34.Uniqueness

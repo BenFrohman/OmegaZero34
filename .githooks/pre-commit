@@ -1,0 +1,36 @@
+#!/bin/sh
+# Refuse commits that GitHub will not count on BenFrohman's graph.
+# Identity: Frohmanian <frohmanbenjamin@gmail.com> (GitHub login BenFrohman).
+
+required_email="frohmanbenjamin@gmail.com"
+
+author_email="${GIT_AUTHOR_EMAIL:-$(git config user.email)}"
+committer_email="${GIT_COMMITTER_EMAIL:-$(git config user.email)}"
+
+fail() {
+  echo "pre-commit: refusing this identity." >&2
+  echo "  author:    ${author_email}" >&2
+  echo "  committer: ${committer_email}" >&2
+  echo "GitHub only paints BenFrohman's graph for ${required_email}." >&2
+  echo "Never use @local, an agent identity, or a placeholder as the only author." >&2
+  echo "Fix:" >&2
+  echo "  git config user.name \"Frohmanian\"" >&2
+  echo "  git config user.email \"${required_email}\"" >&2
+  exit 1
+}
+
+case "${author_email}" in
+  "${required_email}") ;;
+  *) fail ;;
+esac
+
+case "${committer_email}" in
+  "${required_email}") ;;
+  *) fail ;;
+esac
+
+case "${author_email}${committer_email}" in
+  *@local*) fail ;;
+esac
+
+exit 0

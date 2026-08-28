@@ -1,0 +1,457 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Pf}{\mathrm{Pf}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\spq}{\mathfrak{sp}}
+\newcommand{\teth}{\omega_{\mathrm{Teth}}}
+
+\title{The unique monodromy-invariant alternating form of type $(1,6)$\\
+on a $(3,4,\infty)$ lattice representation,\\
+and the restriction of a functorial symplectic structure}
+\author{Benjamin Frohman}
+\date{28 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $V=\Z^4$ carry the representation of the triangle group $\Delta(3,4,\infty)$ given by the matrices $T_1,T_2\in\mathrm{SL}(4,\Z)$ in Alp\"oge's self-hosted note on a family of complex $2$-tori. The $\Q$-vector space of alternating bilinear forms on $V_{\Q}$ invariant under $T_1$ and $T_2$ is one-dimensional. A primitive integral generator is the matrix
+\[
+\Omega_0=\begin{pmatrix}0&0&0&1\\0&0&6&0\\0&-6&0&0\\-1&0&0&0\end{pmatrix},
+\]
+of determinant $36$ and elementary-divisor type $(1,6)$. The unipotent $T_0=(T_1T_2)^{-1}$ preserves the same form, and $N=T_0-I$ lies in $\spq(V_{\Q},\omega_0)$.
+
+Consequently any monodromy-invariant alternating form on this local system---including the restriction of a functorial symplectic $2$-form on families of complex $2$-tori---is a unique rational multiple of $\omega_0$. This organises the fibrewise pairing used in vanishing-cycle and unipotent-cusp calculations. It does not construct a compactification of the family.
+\end{abstract}
+
+\noindent\textit{MSC-style keywords:} symplectic lattice, monodromy, triangle group, Pfaffian, complex torus.
+
+\tableofcontents
+
+\section{Scope}
+
+This note proves a theorem about a rank-four lattice and two matrices, then records a conditional lemma connecting that theorem to a functorial symplectic form on families of complex tori.
+
+The following are \textbf{not} proved here: existence of holomorphic period functions $\tau,\mu,\beta$; existence or holomorphicity of the compactification $X$ in~\cite{AlpogeS6}; that $X$ is a homology sphere or diffeomorphic to any particular smooth manifold; that a named ``Frohmanian Tether Theorem'' has been kernel-checked in Lean; that the construction of~\cite{AlpogeS6} is incorrect, incomplete, or appropriated.
+
+What \emph{is} proved is that the fibrewise pairing on this monodromy representation, if it is alternating and invariant, cannot be anything other than a scalar times $\omega_0$.
+
+\section{Dictionary}
+
+Three objects appear in the same calculation. They are not interchangeable.
+
+\begin{center}
+\begin{tabular}{llll}
+\hline
+Object & Symbol & Type of thing & Role \\
+\hline
+Invariant pairing & $\omega_0$, $\Omega_0$ & alternating form on $V$ & unique monodromy-invariant symplectic structure \\
+Cusp logarithm & $N=T_0-I$ & nilpotent endomorphism & infinitesimal monodromy at the infinite vertex \\
+Pfaffian & $\Pf(\Omega_0)=6$ & integer & symplectic volume; records type $(1,6)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+A carefully stated fragment of a Frohmanian tether is a functorial symplectic $2$-form on the first homology of complex $2$-tori: nondegenerate over $\Q$, invariant under monodromy, stable under field extension. Restricted to \emph{this} representation, uniqueness forces
+\[
+\text{tether}\big|_{V_{\Q}}=\lambda\,\omega_0
+\]
+for a unique $\lambda\in\Q^\times$. Hence: tether $=$ the form $\lambda\omega_0$; tether $\neq N$; tether $\neq\Pf(\Omega_0)$.
+
+\paragraph{Why not $N$.}
+$N$ is an element of the symplectic Lie algebra of the form,
+\[
+N\in\spq(V_{\Q},\omega_0)\qquad\Longleftrightarrow\qquad N^T\Omega_0+\Omega_0 N=0.
+\]
+It is a Hamiltonian infinitesimal symmetry of the tether form, and geometrically the vanishing operator of the cusp. The form is the pairing; $N$ is a vector field that preserves the pairing. Slogan that does not lie: the tether is $\omega$; the fill at the cusp is the unipotent flow of $N$ inside $\mathrm{Sp}(\omega)$.
+
+\paragraph{Why not the Pfaffian.}
+$\Pf(\Omega_0)=6$ is a scalar invariant of $\omega_0$. It is the reason the form is not a principal polarization (type $(1,1)$ would have Pfaffian $\pm 1$). It is not a $2$-form and not a local system. If one wants a single integer attached to the tether on this lattice, $6$ is that integer. That still does not make $\Pf$ equal to the tether.
+
+\paragraph{Full dictionary.}
+\begin{align*}
+\text{tether form on this fibre} &\longleftrightarrow \lambda\omega_0,\\
+\text{monodromy} &\longleftrightarrow \langle T_1,T_2\rangle\subset\Aut(V,\omega_0),\\
+\text{cusp generator} &\longleftrightarrow T_0=I+N,\\
+\text{infinitesimal cusp / vanishing} &\longleftrightarrow N\in\spq(\omega_0),\\
+\text{vanishing plane} &\longleftrightarrow \ker N=\mathrm{im}\,N=\mathrm{span}\{\gamma,u\},\\
+\text{type / non-principal polarization} &\longleftrightarrow \Pf(\Omega_0)=6.
+\end{align*}
+So: tether $=\omega_0$ (up to the scalar $\lambda$). $N$ is how the family degenerates while preserving the tether. $\Pf$ is how large that tether is on an integral frame.
+
+\section{The representation}
+
+Let $V=\Z^4$ with ordered basis $(\gamma,u,w,\delta)$. Alp\"oge's note~\cite{AlpogeS6} assigns to the standard generators of
+\[
+\Delta=\Delta(3,4,\infty)=\langle g_1,g_2\mid g_1^3=g_2^4=1\rangle
+\]
+the matrices
+\[
+T_1=\begin{pmatrix}1&0&-6&2\\0&-1&1&1\\0&-1&0&1\\0&0&0&1\end{pmatrix},\qquad
+T_2=\begin{pmatrix}1&6&0&-3\\0&0&-1&1\\0&1&0&0\\0&0&0&1\end{pmatrix}.
+\]
+Write $\rho_V:\Delta\to\mathrm{GL}(V)$ for the representation with $g_j\mapsto T_j$. Direct multiplication gives
+\[
+T_1T_2=\begin{pmatrix}1&0&0&-1\\0&1&1&0\\0&0&1&0\\0&0&0&1\end{pmatrix}.
+\]
+This matrix is unipotent of index two, and its inverse is
+\[
+T_0:=(T_1T_2)^{-1}=\begin{pmatrix}1&0&0&1\\0&1&-1&0\\0&0&1&0\\0&0&0&1\end{pmatrix}.
+\]
+Set $N:=T_0-I$. Then
+\[
+N=\begin{pmatrix}0&0&0&1\\0&0&-1&0\\0&0&0&0\\0&0&0&0\end{pmatrix},\qquad N^2=0,
+\]
+and $N\gamma=0$, $Nu=0$, $Nw=-u$, $N\delta=\gamma$.
+
+\begin{proposition}
+$\det T_1=\det T_2=\det T_0=1$. Hence $\rho_V$ lands in $\mathrm{SL}(4,\Z)$.
+\end{proposition}
+
+\begin{proposition}
+$T_1^3=I$ and $T_1\neq I$, $T_1^2\neq I$. $T_2^4=I$ and $T_2^k\neq I$ for $k=1,2,3$. Thus the orders of the generators are exactly $3$ and $4$.
+\end{proposition}
+
+\begin{proposition}
+$T_0(T_1T_2)=(T_1T_2)T_0=I$ and $N^2=0$, $N\neq 0$.
+\end{proposition}
+
+Let $\Lambda=V^*$ with dual basis $(\hat\gamma,\hat u,\hat w,\hat\delta)$. The dual representation is $A_j:=(T_j^{-1})^T$, $A_0:=(T_0^{-1})^T$. Explicitly
+\[
+A_1=\begin{pmatrix}1&0&0&0\\6&0&1&0\\-6&-1&-1&0\\-2&1&0&1\end{pmatrix},\quad
+A_2=\begin{pmatrix}1&0&0&0\\0&0&-1&0\\-6&1&0&0\\3&0&1&1\end{pmatrix},\quad
+A_0=\begin{pmatrix}1&0&0&0\\0&1&0&0\\0&1&1&0\\-1&0&0&1\end{pmatrix}.
+\]
+The source vectors $\varepsilon=\hat\gamma+2\hat u-4\hat w$ and $\varepsilon'=\hat\gamma+3\hat u-3\hat w$ satisfy $A_1\varepsilon=\varepsilon$ and $A_2\varepsilon'=\varepsilon'$.
+
+\section{Alternating forms}
+
+A bilinear form $\omega:V_{\Q}\times V_{\Q}\to\Q$ is \emph{alternating} if $\omega(x,x)=0$ for all $x$. In characteristic not $2$ this is equivalent to $\omega(x,y)=-\omega(y,x)$. Relative to the ordered basis, $\omega(x,y)=x^T\Omega y$ for a unique matrix $\Omega$ with $\Omega^T=-\Omega$.
+
+The form is \emph{invariant} under $T\in\mathrm{GL}(V_{\Q})$ if $\omega(Tx,Ty)=\omega(x,y)$ for all $x,y$, equivalently $T^T\Omega T=\Omega$. Nondegeneracy is $\det\Omega\neq 0$, or equivalently $\Pf(\Omega)\neq 0$, where for
+\[
+\Omega=\begin{pmatrix}0&a&b&c\\-a&0&d&e\\-b&-d&0&f\\-c&-e&-f&0\end{pmatrix}
+\]
+one has $\Pf(\Omega)=af-be+cd$ and $\det\Omega=\Pf(\Omega)^2$. The space $\mathcal{A}$ of such matrices is six-dimensional, with coordinates
+\begin{align*}
+a&=\omega(\gamma,u),&
+b&=\omega(\gamma,w),&
+c&=\omega(\gamma,\delta),\\
+d&=\omega(u,w),&
+e&=\omega(u,\delta),&
+f&=\omega(w,\delta).
+\end{align*}
+Because both sides of an invariance identity are skew, it is enough to impose equality on the six pairs $(\gamma,u)$, $(\gamma,w)$, $(\gamma,\delta)$, $(u,w)$, $(u,\delta)$, $(w,\delta)$.
+
+\section{Existence and uniqueness}
+
+\begin{theorem}[Existence and uniqueness]\label{thm:A}
+The $\Q$-vector space of alternating forms on $V_{\Q}$ invariant under $T_1$ and $T_2$ is one-dimensional, spanned by $\omega_0$ with Gram matrix
+\[
+\Omega_0=\begin{pmatrix}0&0&0&1\\0&0&6&0\\0&-6&0&0\\-1&0&0&0\end{pmatrix}.
+\]
+Equivalently, $\omega_0(\gamma,\delta)=1$, $\omega_0(u,w)=6$, and all other unordered pairings of basis vectors vanish. The $\Z$-module of integral such forms is $\Z\cdot\omega_0$. The form is nondegenerate, of elementary-divisor type $(1,6)$.
+\end{theorem}
+
+The proof occupies the rest of this section. No rank claim is used without the residuals: each residual is derived from $\omega(Tx,Ty)-\omega(x,y)$ on basis pairs.
+
+\subsection{Residual of $T_1$}
+
+The columns of $T_1$ are
+\[
+T_1\gamma=\gamma,\qquad T_1u=-u-w,\qquad T_1w=-6\gamma+u,\qquad T_1\delta=2\gamma+u+w+\delta.
+\]
+
+\begin{lemma}\label{lem:T1res}
+The independent upper-triangular entries of $T_1^T\Omega T_1-\Omega$ are
+\begin{align*}
+(1,2)&:\quad -2a-b,\\
+(1,3)&:\quad a-b,\\
+(1,4)&:\quad a+b,\\
+(2,3)&:\quad -6(a+b),\\
+(2,4)&:\quad 2a+2b-2e-f,\\
+(3,4)&:\quad -8a-6b-6c+d+e-f.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+$(1,2)$. $\omega(T_1\gamma,T_1u)=\omega(\gamma,-u-w)=-a-b$. Residual: $(-a-b)-a=-2a-b$.
+
+$(1,3)$. $\omega(T_1\gamma,T_1w)=\omega(\gamma,-6\gamma+u)=a$. Residual: $a-b$.
+
+$(1,4)$. $\omega(\gamma,2\gamma+u+w+\delta)=a+b+c$. Residual: $(a+b+c)-c=a+b$.
+
+$(2,3)$.
+\begin{align*}
+\omega(T_1u,T_1w)
+&=\omega(-u-w,-6\gamma+u)\\
+&=6\omega(u,\gamma)-\omega(u,u)+6\omega(w,\gamma)-\omega(w,u)\\
+&=6(-a)+0+6(-b)-(-d)=-6a-6b+d.
+\end{align*}
+Residual: $(-6a-6b+d)-d=-6(a+b)$.
+
+$(2,4)$.
+\begin{align*}
+\omega(T_1u,T_1\delta)
+&=\omega(-u-w,\ 2\gamma+u+w+\delta)\\
+&=-2\omega(u,\gamma)-\omega(u,u)-\omega(u,w)-\omega(u,\delta)\\
+&\quad-2\omega(w,\gamma)-\omega(w,u)-\omega(w,w)-\omega(w,\delta)\\
+&=-2(-a)-0-d-e-2(-b)-(-d)-0-f=2a+2b-e-f.
+\end{align*}
+(The $-\omega(u,w)-\omega(w,u)=-d+d=0$ cancelled.) Residual: $(2a+2b-e-f)-e=2a+2b-2e-f$.
+
+$(3,4)$.
+\begin{align*}
+\omega(T_1w,T_1\delta)
+&=\omega(-6\gamma+u,\ 2\gamma+u+w+\delta)\\
+&=-12\omega(\gamma,\gamma)-6\omega(\gamma,u)-6\omega(\gamma,w)-6\omega(\gamma,\delta)\\
+&\quad+2\omega(u,\gamma)+\omega(u,u)+\omega(u,w)+\omega(u,\delta)\\
+&=0-6a-6b-6c+2(-a)+0+d+e=-8a-6b-6c+d+e.
+\end{align*}
+Residual: $(-8a-6b-6c+d+e)-f$.
+\end{proof}
+
+\subsection{Residual of $T_2$}
+
+The columns of $T_2$ are
+\[
+T_2\gamma=\gamma,\qquad T_2u=6\gamma+w,\qquad T_2w=-u,\qquad T_2\delta=-3\gamma+u+\delta.
+\]
+
+\begin{lemma}\label{lem:T2res}
+The independent upper-triangular entries of $T_2^T\Omega T_2-\Omega$ are
+\begin{align*}
+(1,2)&:\quad -a+b,\\
+(1,3)&:\quad -a-b,\\
+(1,4)&:\quad a,\\
+(2,3)&:\quad -6a,\\
+(2,4)&:\quad 6a+3b+6c-d-e+f,\\
+(3,4)&:\quad -3a-e-f.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+$(1,2)$. $\omega(\gamma,6\gamma+w)=b$. Residual $b-a=-a+b$.
+
+$(1,3)$. $\omega(\gamma,-u)=-a$. Residual $-a-b$.
+
+$(1,4)$. $\omega(\gamma,-3\gamma+u+\delta)=a+c$. Residual $a$.
+
+$(2,3)$. $\omega(6\gamma+w,-u)=-6a+d$. Residual $-6a$.
+
+$(2,4)$.
+\begin{align*}
+\omega(6\gamma+w,-3\gamma+u+\delta)
+&=-18\omega(\gamma,\gamma)+6\omega(\gamma,u)+6\omega(\gamma,\delta)\\
+&\quad-3\omega(w,\gamma)+\omega(w,u)+\omega(w,\delta)\\
+&=6a+6c-3(-b)+(-d)+f=6a+3b+6c-d+f.
+\end{align*}
+Residual: $(6a+3b+6c-d+f)-e$.
+
+$(3,4)$. $\omega(-u,-3\gamma+u+\delta)=3(-a)-e=-3a-e$. Residual: $-3a-e-f$.
+\end{proof}
+
+\subsection{Solution of the linear system}
+
+\begin{proposition}\label{prop:kernel}
+The twelve residual entries of Lemmas~\ref{lem:T1res} and~\ref{lem:T2res} vanish if and only if
+\[
+a=b=e=f=0\qquad\text{and}\qquad c=\frac{d}{6}.
+\]
+\end{proposition}
+
+\begin{proof}
+From $T_2$'s $(1,4)$-residual one has $a=0$. From $T_2$'s $(1,2)$-residual, $-a+b=0$ and $a=0$ give $b=0$. From $T_2$'s $(1,3)$-residual, $-a-b=0$ is then automatic. From $T_2$'s $(2,3)$-residual, $-6a=0$ is automatic. From $T_2$'s $(3,4)$-residual, $-3a-e-f=0$ becomes $e+f=0$.
+
+From $T_1$'s $(1,2)$, $(1,3)$, $(1,4)$: each of $-2a-b$, $a-b$, $a+b$ vanishes once $a=b=0$. From $T_1$'s $(2,3)$: $-6(a+b)=0$ is automatic. From $T_1$'s $(2,4)$: $2a+2b-2e-f=0$ becomes $-2e-f=0$. Together with $e+f=0$ one gets $f=-e$ and $-2e-(-e)=0$, i.e.\ $-e=0$, hence $e=0$ and $f=0$.
+
+The two remaining equations are the $(3,4)$ residual of $T_1$ and the $(2,4)$ residual of $T_2$. With $a=b=e=f=0$ they collapse to $-6c+d=0$ and $6c-d=0$, which are the same condition $d=6c$.
+
+The solution space is therefore one-dimensional, parametrized by $d\in\Q$ with $(a,b,c,d,e,f)=(0,0,d/6,d,0,0)$. Taking $d=6$ produces the primitive integral matrix $\Omega_0$. Every rational solution is $\lambda\Omega_0$ with $\lambda=d/6$.
+\end{proof}
+
+\subsection{Direct check that $\Omega_0$ works}
+
+Specialize to $a=b=e=f=0$, $c=1$, $d=6$.
+
+\paragraph{Under $T_1$.}
+\begin{align*}
+\omega_0(T_1\gamma,T_1u)&=\omega_0(\gamma,-u-w)=0=\omega_0(\gamma,u),\\
+\omega_0(T_1\gamma,T_1w)&=\omega_0(\gamma,-6\gamma+u)=0=\omega_0(\gamma,w),\\
+\omega_0(T_1\gamma,T_1\delta)&=\omega_0(\gamma,2\gamma+u+w+\delta)=\omega_0(\gamma,\delta)=1,\\
+\omega_0(T_1u,T_1w)&=\omega_0(-u-w,-6\gamma+u)=\omega_0(-w,u)=\omega_0(u,w)=6,\\
+\omega_0(T_1u,T_1\delta)&=\omega_0(-u-w,2\gamma+u+w+\delta)\\
+&=\omega_0(-u,w)+\omega_0(-w,u)+\omega_0(-u,\delta)+\omega_0(-w,\delta)\\
+&=-6+6+0+0=0=\omega_0(u,\delta),\\
+\omega_0(T_1w,T_1\delta)&=\omega_0(-6\gamma+u,2\gamma+u+w+\delta)\\
+&=\omega_0(-6\gamma,\delta)+\omega_0(u,w)=-6\cdot 1+6=0=\omega_0(w,\delta).
+\end{align*}
+
+\paragraph{Under $T_2$.}
+\begin{align*}
+\omega_0(T_2\gamma,T_2u)&=\omega_0(\gamma,6\gamma+w)=0,\\
+\omega_0(T_2\gamma,T_2w)&=\omega_0(\gamma,-u)=0,\\
+\omega_0(T_2\gamma,T_2\delta)&=\omega_0(\gamma,-3\gamma+u+\delta)=1,\\
+\omega_0(T_2u,T_2w)&=\omega_0(6\gamma+w,-u)=\omega_0(w,-u)=6,\\
+\omega_0(T_2u,T_2\delta)&=\omega_0(6\gamma+w,-3\gamma+u+\delta)\\
+&=\omega_0(6\gamma,\delta)+\omega_0(w,u)=6-6=0,\\
+\omega_0(T_2w,T_2\delta)&=\omega_0(-u,-3\gamma+u+\delta)=0.
+\end{align*}
+
+\paragraph{Under $T_0=I+N$.}
+Columns: $T_0\gamma=\gamma$, $T_0u=u$, $T_0w=-u+w$, $T_0\delta=\gamma+\delta$.
+\begin{align*}
+\omega_0(T_0\gamma,T_0\delta)&=\omega_0(\gamma,\gamma+\delta)=1,\\
+\omega_0(T_0u,T_0w)&=\omega_0(u,-u+w)=6,\\
+\omega_0(T_0\gamma,T_0u)&=\omega_0(T_0\gamma,T_0w)=\omega_0(T_0u,T_0\delta)=\omega_0(T_0w,T_0\delta)=0.
+\end{align*}
+
+\subsection{Nondegeneracy, type, integrality}
+
+$\Pf(\Omega_0)=af-be+cd=1\cdot 6=6$, hence $\det\Omega_0=36\neq 0$. In the ordered basis $(\gamma,\delta,u,w)$ the Gram matrix is
+\[
+\begin{pmatrix}0&1\\-1&0\end{pmatrix}\oplus\begin{pmatrix}0&6\\-6&0\end{pmatrix}.
+\]
+The elementary divisors are $(d_1,d_2)=(1,6)$. The form is therefore not equivalent over $\mathrm{GL}(4,\Z)$ to the standard unimodular form of type $(1,1)$.
+
+If $\Psi\in\mathrm{M}_4(\Z)$ is skew and invariant, then $\Psi=\lambda\Omega_0$ over $\Q$ by Proposition~\ref{prop:kernel}. Comparing the $(1,4)$-entry gives $\lambda=\Psi_{14}\in\Z$. Hence $\Psi\in\Z\cdot\Omega_0$. This completes the proof of Theorem~\ref{thm:A}.
+
+Over $\Q$,
+\[
+\Omega_0^{-1}=\begin{pmatrix}0&0&0&-1\\0&0&-1/6&0\\0&1/6&0&0\\1&0&0&0\end{pmatrix},\qquad
+\mathrm{adj}(\Omega_0)=\begin{pmatrix}0&0&0&-36\\0&0&-6&0\\0&6&0&0\\36&0&0&0\end{pmatrix}.
+\]
+The dual pairing is not integral on $\Lambda=V^*$. For $p\in\{2,3\}$ the reduction $\omega_0\otimes\mathbb{F}_p$ is degenerate, with kernel spanned by the reductions of $u$ and $w$.
+
+\section{The cusp}
+
+\begin{theorem}[Cusp]\label{thm:B}
+$N\in\spq(V_{\Q},\omega_0)$ and $\ker N=\mathrm{im}\,N=\mathrm{span}_{\Z}\{\gamma,u\}$ is $\omega_0$-isotropic.
+\end{theorem}
+
+\begin{proof}
+Matrix multiplication: $\Omega_0 N$ has sole nonzero entries $(\Omega_0 N)_{33}=6$ and $(\Omega_0 N)_{44}=-1$, while $N^T\Omega_0$ has the negatives of those entries, so $N^T\Omega_0+\Omega_0 N=0$.
+
+Pairing: $N\gamma=Nu=0$, $Nw=-u$, $N\delta=\gamma$. On basis pairs,
+\begin{align*}
+(\gamma,\delta)&:\ \omega_0(0,\delta)+\omega_0(\gamma,\gamma)=0,\\
+(u,w)&:\ \omega_0(0,w)+\omega_0(u,-u)=0,\\
+(w,\delta)&:\ \omega_0(-u,\delta)+\omega_0(w,\gamma)=0,\\
+(u,\delta)&:\ \omega_0(0,\delta)+\omega_0(u,\gamma)=0,
+\end{align*}
+and $(\gamma,u)$, $(\gamma,w)$ vanish because $N\gamma=0$ and $\omega_0(\gamma,-u)=0$. The remaining pairs follow by skew-symmetry.
+
+Kernel and image: $Nx=(x_3,-x_2,0,0)$, so $\ker N=\mathrm{span}\{\gamma,u\}=\mathrm{im}\,N$, and $\omega_0(\gamma,u)=0$.
+\end{proof}
+
+\section{Restriction of a functorial form}
+
+A carefully stated relevant fragment of a Frohmanian tether, for the present purpose only, is the following package of hypotheses on a category $\mathcal{C}$ of complex $2$-tori (or polarized rank-four lattices) that includes the fibres of the family in~\cite{AlpogeS6} and their monodromy.
+
+\begin{itemize}
+\item[\textbf{H1}] (Existence.) For each object $T\in\mathcal{C}$ there is an alternating form $\teth(T)$ on $H_1(T,\Z)\otimes\Q$.
+\item[\textbf{H2}] (Nondegeneracy.) $\teth(T)$ is nondegenerate over $\Q$.
+\item[\textbf{H3}] (Monodromy / functoriality.) For every morphism $f:T\to T'$ in $\mathcal{C}$ induced by monodromy or by an isomorphism of complex tori, $f^*\teth(T')=\teth(T)$. In particular the monodromy representation preserves $\teth$ on a fibre.
+\item[\textbf{H4}] (Field extension.) After extension of scalars appearing in the linear algebra of the local system, the form is the extension of the original form.
+\end{itemize}
+These are hypotheses, not theorems of this note. A complex $2$-torus always admits \emph{some} compatible symplectic form. That classical fact is weaker than H3--H4.
+
+\begin{theorem}[Restriction, conditional]\label{thm:C}
+Assume H1--H3 for the family of complex $2$-tori in~\cite{AlpogeS6}, and assume the identification of the fibrewise first homology lattice with the module $V=\Z^4$ of Section~3. Then there exists a unique $\lambda\in\Q^\times$ such that
+\[
+\teth\big|_{V_{\Q}}=\lambda\,\omega_0.
+\]
+If H1 produces an integral pairing, then $\lambda\in\Z\setminus\{0\}$.
+\end{theorem}
+
+\begin{proof}
+By H3 the restriction $\psi:=\teth|_V$ is alternating (H1) and invariant under $T_1$ and $T_2$. By Theorem~\ref{thm:A}, $\psi=\lambda\omega_0$ for a unique $\lambda\in\Q$. By H2 one has $\lambda\neq 0$. The integral clause is the last paragraph of the proof of Theorem~\ref{thm:A}.
+\end{proof}
+
+\begin{corollary}
+Under the same hypotheses, the monodromy representation lands in $\Aut(V,\omega_0)$ for categorical reasons (H3). The a-posteriori matrix check is Theorem~\ref{thm:A}.
+\end{corollary}
+
+\begin{corollary}
+The unipotent logarithm $N$ of the cusp monodromy satisfies $N\in\spq(\omega_0)$, and the vanishing plane $\ker N$ is $\omega_0$-isotropic. These are the linear-algebraic inputs of a Mumford-type cusp filling, stated in the unique symplectic structure available on this lattice.
+\end{corollary}
+
+\paragraph{What ``admits the fill'' means.}
+The fillings of the $(3,4,\infty)$ family read a lattice, finite-order automorphisms at the elliptic points, and a rank-two unipotent at the cusp. Those constructions do not require a principal polarization. If a monodromy-invariant alternating form is present, the vanishing plane is isotropic and the logarithm is symplectic. Theorem~\ref{thm:A} says there is only one such form up to scalar on this lattice. A functorial symplectic theory supplies a reason that some pairing exists on a class of tori; Theorem~\ref{thm:C} names that pairing here. That is the fill-admitting role. It organises fibrewise symplectic data. It does not glue the singular fibres and does not prove that the total space is a homology $6$-sphere.
+
+Compatibility of $\lambda\omega_0$ with a varying complex structure $J(z)$ is a separate analytic question and is not settled here.
+
+\section{Why this object is independently citable}
+
+Alp\"oge's note exhibits explicit matrices $T_1,T_2\in\mathrm{SL}(4,\Z)$ and uses them ``in place of the symplectic one.'' That sentence is exact once the form is computed: the representation \emph{is} symplectic over $\Q$, but the integral form is of type $(1,6)$, not the Siegel type $(1,1)$. The matrix $\Omega_0$ is the missing Gram matrix.
+
+Three reasons this is independently citable, even if one never mentions a tether:
+
+\begin{enumerate}
+\item \textbf{Uniqueness.} The space of invariant rational alternating forms is one-dimensional. Any later paper that writes ``the monodromy preserves a symplectic form'' on this example is, up to scalar, writing $\omega_0$.
+\item \textbf{Type.} Type $(1,6)$ explains why the representation is not a map to $\mathrm{Sp}(4,\Z)$ in the principal-polarization embedding. Arithmetic reductions modulo $2$ and $3$ are degenerate on the $(u,w)$-plane.
+\item \textbf{Cusp calculus.} The unipotent logarithm automatically lies in $\spq(\omega_0)$ and the vanishing plane is isotropic. That is the linear algebra a Mumford-type filling reads.
+\end{enumerate}
+
+A functorial symplectic theory (tether) is then a \emph{source} of a form on a class of tori. On this example the source, if it exists and is alternating and monodromy-invariant, cannot produce anything except $\lambda\omega_0$. That is the bridge.
+
+\section{Lean status}
+
+A Lean~4 development against Mathlib checks the lattice identities of Theorems~\ref{thm:A} and~\ref{thm:B} and the implication of Theorem~\ref{thm:C} from uniqueness, in the repository accompanying this note. Concrete $4\times 4$ integer identities use disclosed \texttt{native\_decide}. The uniqueness theorem and the restriction implication depend only on \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}. That development does not kernel-check the geometry of $X$.
+
+\section*{Author's note on priority}
+
+\textit{This section is a statement by the author. It is not a theorem. It is not an independent verification that any laboratory trained on any private corpus. Editors and readers should treat it as a claim about dates and intended scope, not as a substitute for Theorem~\ref{thm:A}.}
+
+I, Benjamin Frohman, record the following for the public file.
+
+Through early 2026 I circulated, under the working name \emph{Frohmanian tether}, a package of invariant symplectic / metriplectic / holographic structure on tori and related categories: a $2$-form that is supposed to be natural with respect to morphisms of complex tori and stable under extension of the base field. Dated drafts, repository commits, and public posts exist on my side of that record. The intent of that package was never ``produce a diffeomorphism $X\simeq S^6$.'' The intent was a functorial pairing.
+
+On 23 August 2026 L.\ Alp\"oge announced a compactification of a $(3,4,\infty)$ family of complex $2$-tori and a claim that the total space is diffeomorphic to $S^6$. The note uses an explicit rank-four lattice representation ``in place of the symplectic one.'' The present calculation supplies the missing Gram matrix $\Omega_0$ of type $(1,6)$ and proves it is the unique invariant form. On 27 August 2026 a Lean repository associated with B.\ Alexeev (\texttt{plby/HopfProblem}) was circulated as a formalization of Alp\"oge's global claim. That repository addresses a different theorem from Theorem~\ref{thm:A}.
+
+I do not claim that Alp\"oge's compactification is a transcription of the tether, and I do not claim that any industrial laboratory published $\Omega_0$ before this note. I do claim:
+
+\begin{itemize}
+\item the functorial-form idea I was writing under the tether name is earlier, on my timestamps, than the August 2026 announcement of~\cite{AlpogeS6};
+\item any monodromy-invariant alternating form on \emph{this} lattice is a scalar times $\omega_0$, so a tether form, if it applies to this family, cannot be a different pairing;
+\item credit for the matrices and for the compactification \emph{claim} remains with Alp\"oge's note;
+\item credit for the uniqueness of $\Omega_0$ and for the restriction lemma is the content of this note.
+\end{itemize}
+
+I also record a suspicion, which I cannot verify from outside a training run: large models in public use in 2026 were trained on internet-visible mathematical text, and some of my earlier public tether writing was internet-visible. That is a remark about possible overlap of \emph{language}, not a proof of derivation, and not an accusation that Alp\"oge or Alexeev copied a private file. Priority for a \emph{theorem} is settled by dated statements of that theorem, not by the hypothesis that a model saw a related phrase.
+
+Readers who want a justiciable priority record should use: (i) the earliest public URL or commit that contains the tether \emph{statement}, (ii) Alp\"oge's 23 August 2026 announcement for the family and the matrices, (iii) this note's date for $\Omega_0$ and uniqueness. Those three dates do not collapse into one.
+
+\section*{Disclaimer}
+
+This note does not assert: that OpenAI, Anthropic, xAI, or any other laboratory trained a named model on a named Frohman corpus; that the HopfProblem Lean file is a transcription of the tether; that $X\simeq S^6$ is proved here; that type $(1,6)$ is a defect in Alp\"oge's geometry rather than a precise description of his lattice.
+
+This note does assert: $\Omega_0$ is the unique invariant rational alternating form on the published matrices; a tether restriction, if the tether applies, equals $\lambda\omega_0$; $N$ is symplectic for that form and is not itself the form; $\Pf=6$ is the type, not the tether.
+
+\begin{thebibliography}{9}
+\bibitem{AlpogeS6}
+L.\ Alp\"oge,
+\emph{A compact complex threefold fibred by tori over the projective line, and the six-sphere},
+self-hosted note announced 23 August 2026,
+\url{https://alpo.ge/s6.pdf}.
+\end{thebibliography}
+
+\noindent\textit{License.} CC-BY-4.0.
+
+\end{document}

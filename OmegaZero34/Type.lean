@@ -1,6 +1,7 @@
 /-
 Copyright (c) 2026 Benjamin Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Frohman
 -/
 import OmegaZero34.Form
 import Mathlib.Data.ZMod.Basic
@@ -9,11 +10,12 @@ import Mathlib.Data.Matrix.Mul
 /-!
 # Elementary-divisor type (1,6)
 
-In the ordered basis \((\gamma,\delta,u,w)\) the form is already
-\[
-\begin{pmatrix}0&1\\-1&0\end{pmatrix}\oplus\begin{pmatrix}0&6\\-6&0\end{pmatrix}.
-\]
-Hence \(\omega_0\) is not unimodular (not type \((1,1)\)).
+In the ordered basis `(γ, δ, u, w)` the form is already
+the block sum of `(0,1; -1,0)` and `(0,6; -6,0)`.
+Hence `ω₀` is not unimodular (not type `(1,1)`).
+
+`Pf(Ω0) = 6` is the integer that records this type. It is a scalar
+invariant of the tether form, not the tether.
 -/
 
 set_option autoImplicit false

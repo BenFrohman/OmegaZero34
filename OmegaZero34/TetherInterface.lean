@@ -1,6 +1,7 @@
 /-
 Copyright (c) 2026 Benjamin Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Frohman
 -/
 import OmegaZero34.Uniqueness
 import Mathlib.Data.Matrix.Mul
@@ -8,20 +9,23 @@ import Mathlib.Data.Matrix.Mul
 /-!
 # Conditional restriction lemma (the bridge)
 
-On this lattice the tether *is* the form \(\omega_0\) (equivalently
-\(\Omega_0\)), not the nilpotent \(N\) and not the Pfaffian. Hypotheses
-H1–H3 of `Omega0_Tether_Bridge_Note.md` §6, specialised to this rank-four
-local system, plus Theorem 3.1, imply that any such form restricts to
-\(\lambda\omega_0\).
+Dictionary on this lattice:
 
-This file does **not** prove H1–H4 from a geometric manuscript. It proves
-the one-line implication
-\[
-\text{alternating}+\text{monodromy-invariant}+\text{nondegenerate}
-\;\Rightarrow\;
-\omega=\lambda\Omega_0,\ \lambda\in\mathbb{Q}^\times.
-\]
-It does not construct \(X\) and does not prove \(X\simeq S^6\).
+* tether form on this fibre  ↔  λ ω₀
+* monodromy                  ↔  ⟨T1, T2⟩ ⊂ Aut(V, ω₀)
+* cusp generator             ↔  T0 = I + N
+* infinitesimal cusp         ↔  N ∈ sp(ω₀)
+* type / not principal       ↔  Pf(Ω0) = 6
+
+So: tether = ω₀ up to λ. N is how the family degenerates while preserving
+the tether. Pf is how large that tether is on an integral frame.
+
+This file does not prove H1–H4 from a geometric manuscript. It proves the
+implication
+
+  alternating + monodromy-invariant + nondegenerate  ⇒  ω = λ Ω0,  λ ∈ ℚˣ.
+
+It does not construct `X` and does not prove `X ≃ S⁶`.
 -/
 
 set_option autoImplicit false

@@ -1,7 +1,9 @@
 /-
 Copyright (c) 2026 Benjamin Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Frohman
 -/
+import OmegaZero34.ForMathlib.MulFinFour
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.Data.Matrix.Mul
@@ -79,11 +81,6 @@ def NR {R : Type*} [CommRing R] : Matrix (Fin 4) (Fin 4) R :=
     0, 0, -1, 0;
     0, 0, 0, 0;
     0, 0, 0, 0]
-
-lemma mul_apply_fin4 {R : Type*} [NonUnitalNonAssocSemiring R]
-    (A B : Matrix (Fin 4) (Fin 4) R) (i j : Fin 4) :
-    (A * B) i j = A i 0 * B 0 j + A i 1 * B 1 j + A i 2 * B 2 j + A i 3 * B 3 j := by
-  rw [Matrix.mul_apply, Fin.sum_univ_four]
 
 lemma T1_eq_T1R : T1 = T1R := rfl
 lemma T2_eq_T2R : T2 = T2R := rfl

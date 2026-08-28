@@ -1,18 +1,21 @@
 /-
 Copyright (c) 2026 Benjamin Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Frohman
 -/
 import OmegaZero34.Form
 
 /-!
 # The unipotent logarithm is symplectic for Ω₀
 
-\(N=T_0-I\) is *not* the tether. The tether, on this lattice, is the form
-\(\Omega_0\). What follows is the infinitesimal consequence of that form:
-\(N\in\mathfrak{sp}(\omega_0)\) and the vanishing plane is isotropic.
+`N = T0 - I` is not the tether. The tether, restricted to this lattice, is
+`λ • Ω0`. `N` is a Hamiltonian infinitesimal symmetry of that form:
 
-The Pfaffian \(\mathrm{Pf}(\Omega_0)=6\) is a scalar invariant of the form,
-not the form itself.
+  N ∈ sp(V_ℚ, ω₀)   iff   Nᵀ * Ω0 + Ω0 * N = 0.
+
+Geometrically `N` is the cusp: ker N = im N = span{γ, u} is the isotropic
+vanishing plane. The tether is the pairing that makes that plane isotropic.
+The fill at the cusp is the unipotent flow of `N` inside Sp(ω₀).
 -/
 
 set_option autoImplicit false
@@ -21,7 +24,8 @@ open Matrix
 
 namespace OmegaZero34
 
-/-- Infinitesimal symplectic condition: \(N\in\mathfrak{sp}(\omega_0)\). -/
+/-- `N` lies in `sp(ω₀)`: a Hamiltonian infinitesimal symmetry of the tether
+form, not the form itself. -/
 lemma N_sp : Nᵀ * Ω0 + Ω0 * N = 0 := by native_decide
 
 lemma N_mulVec_eq_zero_iff (x : Fin 4 → ℤ) :

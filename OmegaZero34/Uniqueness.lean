@@ -1,8 +1,11 @@
 /-
 Copyright (c) 2026 Benjamin Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Frohman
 -/
 import OmegaZero34.Form
+import OmegaZero34.ForMathlib.MulFinFour
+import OmegaZero34.ForMathlib.SkewFour
 import Mathlib.Data.Matrix.Mul
 
 /-!
@@ -23,15 +26,6 @@ namespace OmegaZero34
 
 variable {R : Type*} [CommRing R]
 
-/-- Triple product entries. -/
-lemma mul3_apply (A B C : Matrix (Fin 4) (Fin 4) R) (i j : Fin 4) :
-    (A * B * C) i j =
-      (A i 0 * B 0 0 + A i 1 * B 1 0 + A i 2 * B 2 0 + A i 3 * B 3 0) * C 0 j +
-      (A i 0 * B 0 1 + A i 1 * B 1 1 + A i 2 * B 2 1 + A i 3 * B 3 1) * C 1 j +
-      (A i 0 * B 0 2 + A i 1 * B 1 2 + A i 2 * B 2 2 + A i 3 * B 3 2) * C 2 j +
-      (A i 0 * B 0 3 + A i 1 * B 1 3 + A i 2 * B 2 3 + A i 3 * B 3 3) * C 3 j := by
-  simp [mul_apply, Fin.sum_univ_four]
-
 /-- `T₁` conjugation on the six-parameter family. -/
 lemma T1_conj_ofParams (a b c d e f : R) :
     transpose (T1R (R := R)) * ofParams a b c d e f * T1R =
@@ -40,7 +34,7 @@ lemma T1_conj_ofParams (a b c d e f : R) :
   ext i j
   rw [mul3_apply]
   fin_cases i <;> fin_cases j <;>
-    simp [T1R, ofParams, transpose_apply] <;> ring
+    simp [T1R, ofParams, skewFour, transpose_apply] <;> ring
 
 /-- `T₂` conjugation on the six-parameter family. -/
 lemma T2_conj_ofParams (a b c d e f : R) :
@@ -50,7 +44,7 @@ lemma T2_conj_ofParams (a b c d e f : R) :
   ext i j
   rw [mul3_apply]
   fin_cases i <;> fin_cases j <;>
-    simp [T2R, ofParams, transpose_apply] <;> ring
+    simp [T2R, ofParams, skewFour, transpose_apply] <;> ring
 
 theorem invariant_params (a b c d e f : ℚ)
     (h1 : transpose T1R * ofParams a b c d e f * T1R = ofParams a b c d e f)
@@ -104,34 +98,8 @@ theorem invariant_ofParams_eq_smul_int (a b c d e f : ℤ)
 
 lemma skew_eq_ofParams {S : Type*} [CommRing S] [CharZero S] [NoZeroDivisors S]
     (Ω : Matrix (Fin 4) (Fin 4) S) (h : transpose Ω = -Ω) :
-    Ω = ofParams (Ω 0 1) (Ω 0 2) (Ω 0 3) (Ω 1 2) (Ω 1 3) (Ω 2 3) := by
-  have hswap (i j : Fin 4) : Ω j i = -Ω i j := by
-    have hij := congr_fun (congr_fun h i) j
-    simpa [transpose_apply, Matrix.neg_apply] using hij
-  have hdiag (i : Fin 4) : Ω i i = 0 := by
-    have hi := hswap i i
-    have h2 : (2 : S) * Ω i i = 0 := by
-      have := congrArg (fun t => t + Ω i i) hi
-      simpa [two_mul] using this
-    exact (mul_eq_zero.mp h2).resolve_left two_ne_zero
-  ext i j
-  fin_cases i <;> fin_cases j
-  · simp [ofParams]; exact hdiag 0
-  · simp [ofParams]
-  · simp [ofParams]
-  · simp [ofParams]
-  · simp [ofParams]; exact hswap 0 1
-  · simp [ofParams]; exact hdiag 1
-  · simp [ofParams]
-  · simp [ofParams]
-  · simp [ofParams]; exact hswap 0 2
-  · simp [ofParams]; exact hswap 1 2
-  · simp [ofParams]; exact hdiag 2
-  · simp [ofParams]
-  · simp [ofParams]; exact hswap 0 3
-  · simp [ofParams]; exact hswap 1 3
-  · simp [ofParams]; exact hswap 2 3
-  · simp [ofParams]; exact hdiag 3
+    Ω = ofParams (Ω 0 1) (Ω 0 2) (Ω 0 3) (Ω 1 2) (Ω 1 3) (Ω 2 3) :=
+  eq_skewFour_of_transpose_eq_neg Ω h
 
 /-- The tether on this lattice is this form: any invariant rational skew
 matrix is a scalar multiple of `Ω0`. -/
