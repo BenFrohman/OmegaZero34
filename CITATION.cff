@@ -7,8 +7,12 @@ authors:
     given-names: "Benjamin Stanley"
     alias: "Investor0x"
 date-released: "2026-08-28"
+doi: "10.5281/zenodo.22153742"
 url: "https://github.com/BenFrohman/OmegaZero34"
 repository-code: "https://github.com/BenFrohman/OmegaZero34"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22153742"
 license: "CC-BY-4.0"
 keywords:
   - "symplectic lattice"

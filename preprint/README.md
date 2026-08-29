@@ -8,7 +8,9 @@ Mathlib PRs (`Authors: Benjamin Frohman`).
 **File.** `main.tex`  
 **Title (safe).** The unique monodromy-invariant alternating form of type (1,6) on a (3,4,∞) lattice representation, and the restriction of a functorial symplectic structure  
 **Sources, in order.** `Omega0_Tether_Bridge_Note.md`, `Omega0_Expanded_Proofs.md`, `Omega0_Secondary_Writeup_Zenodo_Feed.md`  
-**License.** CC-BY-4.0
+**License.** CC-BY-4.0  
+**DOI (reserved, unpublished until Publish).** [10.5281/zenodo.22153742](https://doi.org/10.5281/zenodo.22153742)  
+**Zenodo draft.** https://zenodo.org/deposit/22153742
 
 ## Theorems (only these three)
 
