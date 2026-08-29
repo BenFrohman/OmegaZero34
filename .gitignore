@@ -4,3 +4,11 @@
 *.c
 *.o
 *.trace
+*.aux
+*.log
+*.toc
+*.out
+*.xdv
+*.fls
+*.fdb_latexmk
+*.synctex.gz

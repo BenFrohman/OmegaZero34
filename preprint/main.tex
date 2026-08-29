@@ -2,17 +2,24 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{mathtools}
+\usepackage{array}
 \usepackage[hidelinks]{hyperref}
-\usepackage{microtype}
 
 \newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
+\renewcommand{\thetheorem}{\Alph{theorem}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
+\newtheorem{definition}{Definition}
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}{Remark}
+
+\hypersetup{
+  pdftitle={The unique monodromy-invariant alternating form of type (1,6) on a (3,4,infty) lattice representation},
+  pdfauthor={Benjamin Stanley Frohman},
+  pdfkeywords={symplectic lattice, monodromy, triangle group, Pfaffian, complex torus}
+}
 
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -28,7 +35,7 @@ and the restriction of a functorial symplectic structure}
 \thanks{Author of this article, of the accompanying Lean~4 library
 \texttt{OmegaZero34}, and of the generic \texttt{ForMathlib} matrix lemmas.
 The matrices \(T_1,T_2\) and the compactification claim are due to
-Alp\"oge~\cite{AlpogeS6} and are cited, not absorbed.}}
+Alp\"oge~\protect\cite{AlpogeS6} and are cited, not absorbed.}}
 \date{28 August 2026}
 
 \begin{document}
@@ -61,7 +68,12 @@ What \emph{is} proved is that the fibrewise pairing on this monodromy representa
 Three objects appear in the same calculation. They are not interchangeable.
 
 \begin{center}
-\begin{tabular}{llll}
+\small
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{0.18\linewidth}
+  >{\raggedright\arraybackslash}p{0.20\linewidth}
+  >{\raggedright\arraybackslash}p{0.24\linewidth}
+  >{\raggedright\arraybackslash}p{0.28\linewidth}@{}}
 \hline
 Object & Symbol & Type of thing & Role \\
 \hline

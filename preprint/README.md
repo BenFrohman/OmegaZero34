@@ -70,10 +70,13 @@ Do not cite any other Lean file, draft, or `sorry` sketch as the formalization o
 
 ## Build
 
+Compiled article (10 pages, 28 August 2026): `main.pdf`.
+
 ```
-pdflatex main.tex
-pdflatex main.tex
+tectonic -X compile main.tex
 ```
+
+`pdflatex main.tex` twice also works if a TeX Live `pdflatex` is on `PATH`. Do not load `microtype` under Tectonic/XeTeX.
 
 From `~/lean-projects/NS_Millennium_Proof`: `lake build OmegaZero34`.
 
