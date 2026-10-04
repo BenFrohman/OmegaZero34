@@ -5,18 +5,18 @@ Authors: Benjamin Frohman
 -/
 import OmegaZero34.Form
 import OmegaZero34.Matrices
-import OmegaZero34.EngelOrder
+import Mathlib.Tactic
 
 /-!
 # The formalized claim
 
 The claim proved in this repository is the lattice statement: the
-monodromy matrices preserve `\Omega_0`, and the Engel order identity holds
-as an equality of rationals. The geometric claim that a filled total space
-is diffeomorphic to `S^6` is stated and not proved.
+monodromy matrices preserve `Ω0`, and the Engel order identity holds
+as arithmetic over `ℚ`. The geometric claim that a filled total space is
+diffeomorphic to `S^6` is stated and not proved.
 
-Do not rewrite the order identity with integer division. In Lean,
-`(1 : ℤ) / 3 = 0`.
+The previous integer statement `(1 : ℤ) / 3` was false: integer division
+gives `0`. The identity is the rational one.
 -/
 
 set_option autoImplicit false
@@ -29,14 +29,13 @@ namespace OmegaZero34
 def engelOrder (m n : ℤ) : ℕ := Int.natAbs (4 * m + 3 * n)
 
 /-- For the gluing `m = 1`, `n = -1`, the order is `1`. -/
-theorem engelOrder_gluing : engelOrder 1 (-1) = 1 :=
-  engel_order_unit
+theorem engelOrder_gluing : engelOrder 1 (-1) = 1 := by
+  native_decide
 
-/-- The order identity at the gluing, over `ℚ`, not `ℤ`. -/
+/-- Exact form of `|4*m + 3*n| = |12*(m/3 + n/4)|` at this gluing, over `ℚ`. -/
 theorem engelOrder_twelve :
-    (4 * (1 : ℤ) + 3 * (-1) : ℚ) =
-      12 * ((1 : ℚ) / 3 + (-1 : ℚ) / 4) :=
-  engel_order_identity 1 (-1)
+    ((4 : ℤ) * 1 + 3 * (-1) : ℚ) = 12 * ((1 : ℚ) / 3 + (-1 : ℚ) / 4) := by
+  norm_num
 
 /-- The claim that is formalized: form, orders, unipotence, invariance. -/
 theorem matrixClaim :
