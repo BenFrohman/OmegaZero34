@@ -8,4 +8,5 @@ import OmegaZero34.Nilpotent
 import OmegaZero34.Type
 import OmegaZero34.TetherInterface
 import OmegaZero34.EngelOrder
+import OmegaZero34.Claim
 import OmegaZero34.PrintAxioms
