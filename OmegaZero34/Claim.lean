@@ -15,8 +15,8 @@ monodromy matrices preserve `Ω0`, and the Engel order identity holds
 as arithmetic over `ℚ`. The geometric claim that a filled total space is
 diffeomorphic to `S^6` is stated and not proved.
 
-The previous integer statement `(1 : ℤ) / 3` was false: integer division
-gives `0`. The identity is the rational one.
+`matrixClaim` is a proof, not a proposition name. It is not used as the
+domain of an implication.
 -/
 
 set_option autoImplicit false
@@ -53,11 +53,13 @@ theorem matrixClaim :
 def geometricClaim (X_exists pi1_trivial homology_S6 diffeo_S6 : Prop) : Prop :=
   X_exists ∧ pi1_trivial ∧ homology_S6 ∧ diffeo_S6
 
-/-- The matrix theorem does not discharge the geometric claim. -/
+/-- Having `matrixClaim` does not produce the geometric claim.
+The geometric statement remains an assumption. -/
 theorem matrixClaim_not_geometric
-    (X_exists pi1_trivial homology_S6 diffeo_S6 : Prop) :
-    matrixClaim → geometricClaim X_exists pi1_trivial homology_S6 diffeo_S6 →
+    (X_exists pi1_trivial homology_S6 diffeo_S6 : Prop)
+    (_h : Ω0ᵀ = -Ω0) :
+    geometricClaim X_exists pi1_trivial homology_S6 diffeo_S6 →
       geometricClaim X_exists pi1_trivial homology_S6 diffeo_S6 :=
-  fun _ h => h
+  id
 
 end OmegaZero34

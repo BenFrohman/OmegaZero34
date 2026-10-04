@@ -10,32 +10,38 @@ import Mathlib.Tactic
 
 Engel, arXiv:2609.38442, Proposition 6.1, records a presentation
 
-  pi1(Y) = < c, x0, x1 | c central, x0 x1 = 1, x0^3 = c^m, x1^4 = c^n >
+  π₁(Y) = ⟨ c, x0, x1 | c central, x0 x1 = 1, x0³ = c^m, x1⁴ = c^n ⟩
 
-with `m = 3 psi(a0)` and `n = 4 psi(a1)`, and concludes that the group is cyclic of
-order `|4*m + 3*n| = |12 psi(a0+a1)|`.
+with `m = 3 ψ(a0)` and `n = 4 ψ(a1)`, and concludes that the group is cyclic of
+order `|4*m + 3*n| = |12 ψ(a0+a1)|`.
 
-This file formalizes only that identity over `Rat`. It does not construct `Y`,
-does not prove the presentation, and does not prove `Y` diffeomorphic to `S^6`.
+This file formalizes that identity over `ℚ`. Integer division is not used:
+`(1 : ℤ) / 3 = 0`. The `Rat.num` lemma was dropped; `simp` did not prove it.
+This file does not construct `Y` and does not prove `Y ≅ S⁶`.
 -/
 
 set_option autoImplicit false
 
 namespace OmegaZero34
 
-/-- The order formula is an equality of rationals: `4*m + 3*n = 12*(m/3 + n/4)`. -/
-theorem engel_order_identity (m n : Int) :
-    (4 * m + 3 * n : Rat) = 12 * ((m : Rat) / 3 + (n : Rat) / 4) := by
+/-- The order formula over `ℚ`: `4*m + 3*n = 12*(m/3 + n/4)`. -/
+theorem engel_order_identity (m n : ℤ) :
+    (4 * m + 3 * n : ℚ) = 12 * ((m : ℚ) / 3 + (n : ℚ) / 4) := by
   ring
 
 /-- The gluing values `m = 1`, `n = -1` give order 1. -/
 theorem engel_order_unit :
-    Int.natAbs (4 * (1 : Int) + 3 * (-1)) = 1 := by
+    Int.natAbs (4 * (1 : ℤ) + 3 * (-1)) = 1 := by
+  native_decide
+
+/-- Same unit case through the `12 ψ` writing, with `ψ(a0)=1/3` and `ψ(a1)=-1/4`. -/
+theorem engel_order_unit_psi :
+    Int.natAbs (12 * ((1 : ℚ) / 3 + (-1 : ℚ) / 4)).num = 1 := by
   native_decide
 
 /-- What this development does not formalize. Kept as documentation, not an axiom. -/
 theorem not_a_diffeomorphism_certificate :
-    Int.natAbs (4 * (1 : Int) + 3 * (-1)) = 1 :=
+    Int.natAbs (4 * (1 : ℤ) + 3 * (-1)) = 1 :=
   engel_order_unit
 
 end OmegaZero34
