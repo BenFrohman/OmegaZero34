@@ -223,7 +223,7 @@ The fillings of the \((3,4,\infty)\) family read a lattice, finite-order automor
 
 *This section is a statement by the author. It is included so a later compilation does not have to invent a priority paragraph. Editors and readers should treat it as a claim about dates and intended scope, not as evidence that any laboratory’s model weights contain any particular corpus, and not as a substitute for Theorem A.*
 
-I, Benjamin Frohman, record the following for the public file.
+I, Benjamin Stanley Frohman, record the following for the public file.
 
 Through early 2026 I circulated, under the working name *Frohmanian tether*, a package of invariant symplectic / metriplectic / holographic structure on tori and related categories: a 2-form that is supposed to be natural with respect to morphisms of complex tori and stable under extension of the base field. Dated drafts, repository commits, and public posts exist on my side of that record. The intent of that package was never “produce a diffeomorphism \(X\simeq S^6\).” The intent was a functorial pairing.
 

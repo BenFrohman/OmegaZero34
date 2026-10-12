@@ -3,7 +3,7 @@
 **Author.** Benjamin Stanley Frohman. Preprint CC-BY-4.0; Lean Apache-2.0.
 Alpöge is cited for \(T_1,T_2\) and the compactification claim, not listed as
 a co-author. Reusable matrix lemmas are in `OmegaZero34/ForMathlib/` for
-Mathlib PRs (`Authors: Benjamin Frohman`).
+Mathlib PRs (`Authors: Benjamin Stanley Frohman`).
 
 **File.** `main.tex`  
 **Title (safe).** The unique monodromy-invariant alternating form of type (1,6) on a (3,4,∞) lattice representation, and the restriction of a functorial symplectic structure  

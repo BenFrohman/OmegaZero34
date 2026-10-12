@@ -29,9 +29,9 @@ Mathlib does **not** have a `/author` bot. Authorship is established by **all** 
 
    ```
    /-
-   Copyright (c) 2026 Benjamin Frohman. All rights reserved.
+   Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
    Released under Apache 2.0 license as described in the file LICENSE.
-   Authors: Benjamin Frohman
+   Authors: Benjamin Stanley Frohman
    -/
    ```
 
@@ -142,7 +142,7 @@ git log -1 --format='Author: %an <%ae>%nCommitter: %cn <%ce>%nSHA: %H'
 
 Both emails must be `frohmanbenjamin@gmail.com`. Put that SHA on any public PR in a comment as above.
 
-WIP branches in this repo should still have `Authors: Benjamin Frohman` in every new Lean file. Do not wait until “final” to set the header; Mathlib CI will reject the PR if the header is wrong.
+WIP branches in this repo should still have `Authors: Benjamin Stanley Frohman` in every new Lean file. Do not wait until “final” to set the header; Mathlib CI will reject the PR if the header is wrong.
 
 ---
 
@@ -150,7 +150,7 @@ WIP branches in this repo should still have `Authors: Benjamin Frohman` in every
 
 - [ ] Discussed on Zulip; GitHub username is on the Zulip profile
 - [ ] Only `ForMathlib/` files; no `OmegaZero34.Matrices` / `Form` / `Uniqueness` imports
-- [ ] Header is the three-line Apache form with `Authors: Benjamin Frohman`
+- [ ] Header is the three-line Apache form with `Authors: Benjamin Stanley Frohman`
 - [ ] `git log` authors (and committers) are `Frohmanian <frohmanbenjamin@gmail.com>` (or empty `--author` commit exists under that identity)
 - [ ] First-push PR comment with full `HEAD` SHA
 - [ ] `WIP` comment until CI is green, then `-WIP`

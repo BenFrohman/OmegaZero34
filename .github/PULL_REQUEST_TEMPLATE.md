@@ -18,7 +18,7 @@ HEAD SHA: <!-- paste `git rev-parse HEAD` after first push; also comment it on t
 
 ## Authorship checklist
 
-- [ ] File headers have `Authors: Benjamin Frohman` (no trailing period)
+- [ ] File headers have `Authors: Benjamin Stanley Frohman` (no trailing period)
 - [ ] `git log` author is Benjamin Stanley Frohman, or an empty `--author` commit was added
 - [ ] After first push I commented the full HEAD SHA on this PR
 - [ ] If this is a Mathlib-bound PR: Zulip intro + GitHub username on Zulip profile

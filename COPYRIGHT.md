@@ -12,7 +12,7 @@ except as granted below.
 The Apache-2.0 grant on the Lean is the Mathlib-compatible form: a
 downstream PR to `mathlib4` or `lean4` can take files under
 `OmegaZero34/ForMathlib/` with the existing copyright header
-`Authors: Benjamin Frohman`.
+`Authors: Benjamin Stanley Frohman`.
 
 Do not list laboratories, Alpöge, or Alexeev as co-authors of this
 library. Cite them where the text cites them.

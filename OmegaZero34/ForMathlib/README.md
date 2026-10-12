@@ -4,7 +4,7 @@ Author: **Benjamin Stanley Frohman**, Apache-2.0.
 
 These modules contain **only** general matrix lemmas. They do not mention
 \(\Omega_0\), triangle groups, or a tether. They are the form a Mathlib or
-Lean 4 PR should take: `Authors: Benjamin Frohman` in the file header,
+Lean 4 PR should take: `Authors: Benjamin Stanley Frohman` in the file header,
 no import of `OmegaZero34.Matrices` / `Form` / `Uniqueness`.
 
 | File now | Intended Mathlib path | Content |
@@ -22,7 +22,7 @@ the copyright header, and do not add Ω₀.
 **Authorship on that PR is not automatic.** Mathlib has no `/author` bot.
 See the root `CONTRIBUTING.md`. Minimum:
 
-1. `Authors: Benjamin Frohman` in the file header (CI-linted; plural `Authors`, no period).
+1. `Authors: Benjamin Stanley Frohman` in the file header (CI-linted; plural `Authors`, no period).
 2. Git commits authored as Benjamin Stanley Frohman with a GitHub-known email.
    If commits were made by an agent, add
    `git commit --author="Benjamin Stanley Frohman <EMAIL>" --allow-empty`
