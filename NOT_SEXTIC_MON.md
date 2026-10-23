@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # This monodromy is not sextic fourfold monodromy
 
 Author: Benjamin Stanley Frohman. Copyright 2026. Apache-2.0.

@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # Expanded proofs of the \(\Omega_0\) theorems
 
 This addendum replaces any appeal to “computer algebra / rank 5” with the explicit linear system and entrywise identities. Notation is that of `Omega0_Tether_Bridge_Note.md`. Vectors are columns. Indices on matrices are \(1\)-based in the order \((\gamma,u,w,\delta)\).

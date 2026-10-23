@@ -27,3 +27,4 @@ HEAD SHA: <!-- paste `git rev-parse HEAD` after first push; also comment it on t
 Co-authored-by: Benjamin Stanley Frohman <REPLACE_WITH_GITHUB_NOREPLY_EMAIL>
 
 ---
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->

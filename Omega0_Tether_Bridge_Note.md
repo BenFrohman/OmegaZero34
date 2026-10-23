@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # The unique monodromy-invariant alternating form of type (1,6) on Alpöge’s (3,4,∞) lattice, and the restriction of a functorial symplectic structure
 
 **A lattice theorem, a uniqueness theorem, and a precise bridge statement**

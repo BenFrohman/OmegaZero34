@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # Certificates
 
 Date: 2026-10-04. Scope is the lattice computation already kernel-checked in this repository, plus the order identity of Engel's presentation recorded as an input.

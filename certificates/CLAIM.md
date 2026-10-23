@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # Formalized claim
 
 The claim that this repository formalizes is the lattice claim, plus the arithmetic of Engel's order formula.

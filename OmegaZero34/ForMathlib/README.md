@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # ForMathlib (upstream candidates)
 
 Author: **Benjamin Stanley Frohman**, Apache-2.0.

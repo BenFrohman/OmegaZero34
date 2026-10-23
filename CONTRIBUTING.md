@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # Contributing, authorship, and upstream rules
 
 This repository has two layers. Treat them differently.

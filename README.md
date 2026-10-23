@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # The unique monodromy-invariant alternating form of type (1,6)
 
 **Author.** Benjamin Stanley Frohman. Lean code Apache-2.0; preprint CC-BY-4.0.

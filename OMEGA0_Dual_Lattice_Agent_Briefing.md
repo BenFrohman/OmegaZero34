@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # AGENT BRIEFING — Ω₀, dual-lattice invariants, and a tether restriction lemma
 ## Feed this file in full to a Grok CLI / Lean agent
 ## Date of computation: 2026-08-27

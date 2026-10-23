@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # What this preprint proves
 
 **Author.** Benjamin Stanley Frohman. Preprint CC-BY-4.0; Lean Apache-2.0.

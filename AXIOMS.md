@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # `#print axioms` dump
 
 Recorded by `lake build OmegaZero34` against Lean 4.30.0-rc1 + Mathlib `v4.30.0-rc1`.

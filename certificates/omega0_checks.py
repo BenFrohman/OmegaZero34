@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0.
 """Scoped certificate. Does not certify the filling, Leray, or S^6."""
 import numpy as np
 from numpy.linalg import det, matrix_rank
