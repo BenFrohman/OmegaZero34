@@ -6,14 +6,22 @@ authors:
   - family-names: "Frohman"
     given-names: "Benjamin Stanley"
     alias: "Investor0x"
+    orcid: "https://orcid.org/0009-0006-7068-3718"
 date-released: "2026-08-28"
-doi: "10.5281/zenodo.22153742"
+doi: "10.5281/zenodo.22240545"
 url: "https://github.com/BenFrohman/OmegaZero34"
 repository-code: "https://github.com/BenFrohman/OmegaZero34"
 identifiers:
   - type: doi
+    value: "10.5281/zenodo.22240545"
+    description: "Zenodo v2 (latest published version)"
+  - type: doi
     value: "10.5281/zenodo.22153742"
-license: "CC-BY-4.0"
+    description: "Zenodo v1"
+  - type: doi
+    value: "10.5281/zenodo.22153741"
+    description: "Zenodo concept DOI"
+license: "Apache-2.0"
 keywords:
   - "symplectic lattice"
   - "monodromy"

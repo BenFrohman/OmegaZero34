@@ -1,7 +1,7 @@
 <!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # What this preprint proves
 
-**Author.** Benjamin Stanley Frohman. Preprint CC-BY-4.0; Lean Apache-2.0.
+**Author.** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718)). Preprint CC-BY-4.0; Lean Apache-2.0.
 Alpöge is cited for \(T_1,T_2\) and the compactification claim, not listed as
 a co-author. Reusable matrix lemmas are in `OmegaZero34/ForMathlib/` for
 Mathlib PRs (`Authors: Benjamin Stanley Frohman`).
@@ -10,8 +10,7 @@ Mathlib PRs (`Authors: Benjamin Stanley Frohman`).
 **Title (safe).** The unique monodromy-invariant alternating form of type (1,6) on a (3,4,∞) lattice representation, and the restriction of a functorial symplectic structure  
 **Sources, in order.** `Omega0_Tether_Bridge_Note.md`, `Omega0_Expanded_Proofs.md`, `Omega0_Secondary_Writeup_Zenodo_Feed.md`  
 **License.** CC-BY-4.0  
-**DOI (reserved, unpublished until Publish).** [10.5281/zenodo.22153742](https://doi.org/10.5281/zenodo.22153742)  
-**Zenodo draft.** https://zenodo.org/deposit/22153742
+**Published Zenodo DOIs.** Latest v2: [10.5281/zenodo.22240545](https://doi.org/10.5281/zenodo.22240545) · v1: [10.5281/zenodo.22153742](https://doi.org/10.5281/zenodo.22153742) · Concept DOI: [10.5281/zenodo.22153741](https://doi.org/10.5281/zenodo.22153741)
 
 ## Theorems (only these three)
 

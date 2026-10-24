@@ -1,7 +1,8 @@
 <!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # The unique monodromy-invariant alternating form of type (1,6)
 
-**Author.** Benjamin Stanley Frohman. Lean code Apache-2.0; preprint CC-BY-4.0.
+**Author.** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718)). Lean code Apache-2.0; preprint CC-BY-4.0.
+**Published Zenodo DOIs.** Latest v2: [10.5281/zenodo.22240545](https://doi.org/10.5281/zenodo.22240545) · v1: [10.5281/zenodo.22153742](https://doi.org/10.5281/zenodo.22153742) · Concept DOI: [10.5281/zenodo.22153741](https://doi.org/10.5281/zenodo.22153741).
 See `AUTHORS.md`, `COPYRIGHT.md`, `CITATION.cff`. Alpöge is cited for
 \(T_1,T_2\) and the compactification claim, not as a co-author.
 
