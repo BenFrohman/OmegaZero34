@@ -1,0 +1,70 @@
+{
+  "tool": "pipelinehalt",
+  "anchor": "/workspace/ph-runs/_out/OmegaZero34/anchor.json",
+  "instructions": "Fill in `answer` for each question (start with yes/intentional or no/unintended, optionally followed by an explanation), then run `pipelinehalt answer --anchor <anchor> --from <this file>`. Blank answers stay open.",
+  "questions": [
+    {
+      "id": "f4eca6323f9b",
+      "claimId": "proposition-1",
+      "kind": "silent",
+      "question": "Paper claim Proposition 1 (proposition-1) states: “$\\det T_1=\\det T_2=\\det T_0=1$. Hence $\\rho_V$ lands in $\\mathrm{SL}(4,\\Z)$.”. No Lean declaration matching it was found among 143 candidates. Closest candidate: `not_unimodular` (score 0.39, but it matches claim proposition-3 better). Is this claim intentionally not formalized, or which declaration should it map to?",
+      "answer": ""
+    },
+    {
+      "id": "20ab1a1d490a",
+      "claimId": "proposition-3",
+      "kind": "ambiguous",
+      "question": "Paper claim Proposition 3 (proposition-3) states: “$T_0(T_1T_2)=(T_1T_2)T_0=I$ and $N^2=0$, $N\\neq 0$.”. Lean theorem `generators_preserve_Ω0` is documented as “Corollary 7.2”, while the paper numbers this claim Proposition 3. Which numbering should readers and tools use?",
+      "answer": ""
+    },
+    {
+      "id": "39fb586cbbe3",
+      "claimId": "thm:A",
+      "kind": "silent",
+      "question": "Paper claim Theorem 4 (thm:A) states: “The $\\Q$-vector space of alternating forms on $V_{\\Q}$ invariant under $T_1$ and $T_2$ is one-dimensional, spanned by $\\omega_0$ with Gram matrix \\[ \\Omega_0=\\begin{pmatrix}0&0&0&1\\\\0&0&6&0\\\\0&-6&0&0…”. No Lean declaration matching it was found among 143 candidates. Closest candidate: `Ω0_gamma_delta` (score 0.23, but it matches claim proposition-3 better). Is this claim intentionally not formalized, or which declaration should it map to?",
+      "answer": ""
+    },
+    {
+      "id": "0f4c8ec3979d",
+      "claimId": "lem:T1res",
+      "kind": "silent",
+      "question": "Paper claim Lemma 5 (lem:T1res) states: “The independent upper-triangular entries of $T_1^T\\Omega T_1-\\Omega$ are \\begin{align*} (1,2)&:\\quad -2a-b,\\\\ (1,3)&:\\quad a-b,\\\\ (1,4)&:\\quad a+b,\\\\ (2,3)&:\\quad -6(a+b),\\\\ (2,4)&:\\quad 2a+2b-2e-f,\\…”. No Lean declaration matching it was found among 143 candidates. Closest candidate: `eq_skewFour_of_transpose_eq_neg` (score 0.25, but it matches claim lem:T2res better). Is this claim intentionally not formalized, or which declaration should it map to?",
+      "answer": ""
+    },
+    {
+      "id": "8928d0fc22c9",
+      "claimId": "lem:T2res",
+      "kind": "conditional",
+      "question": "Paper claim Lemma 6 (lem:T2res) states: “The independent upper-triangular entries of $T_2^T\\Omega T_2-\\Omega$ are \\begin{align*} (1,2)&:\\quad -a+b,\\\\ (1,3)&:\\quad -a-b,\\\\ (1,4)&:\\quad a,\\\\ (2,3)&:\\quad -6a,\\\\ (2,4)&:\\quad 6a+3b+6c-d-e+f,\\\\ …”. Lean lemma `eq_skewFour_of_transpose_eq_neg` assumes `h : transpose Ω = -Ω`, which the claim does not state. Is this extra hypothesis intentional?",
+      "answer": ""
+    },
+    {
+      "id": "daa8ee446ae0",
+      "claimId": "prop:kernel",
+      "kind": "silent",
+      "question": "Paper claim Proposition 7 (prop:kernel) states: “The twelve residual entries of Lemmas~\\ref{lem:T1res} and~\\ref{lem:T2res} vanish if and only if \\[ a=b=e=f=0\\qquad\\text{and}\\qquad c=\\frac{d}{6}. \\]”. No Lean declaration matching it was found among 143 candidates. Closest candidate: `vanishing_plane_isotropic` (score 0.26, but it matches claim proposition-3 better). Is this claim intentionally not formalized, or which declaration should it map to?",
+      "answer": ""
+    },
+    {
+      "id": "22883a48a76b",
+      "claimId": "thm:C",
+      "kind": "silent",
+      "question": "Paper claim Theorem 9 (thm:C) states: “Assume H1--H3 for the family of complex $2$-tori in~\\cite{AlpogeS6}, and assume the identification of the fibrewise first homology lattice with the module $V=\\Z^4$ of Section~3. Then there exists a u…”. No Lean declaration matching it was found among 143 candidates. Closest candidate: `restriction_lemma` (score 0.22, but it matches claim proposition-3 better). Is this claim intentionally not formalized, or which declaration should it map to?",
+      "answer": ""
+    },
+    {
+      "id": "023035a2d63a",
+      "claimId": "corollary-10",
+      "kind": "silent",
+      "question": "Paper claim Corollary 10 (corollary-10) states: “Under the same hypotheses, the monodromy representation lands in $\\Aut(V,\\omega_0)$ for categorical reasons (H3). The a-posteriori matrix check is Theorem~\\ref{thm:A}.”. No Lean declaration matching it was found among 143 candidates. Closest candidate: `uniqueness_over_Q` (score 0.19, below threshold 0.2). Is this claim intentionally not formalized, or which declaration should it map to?",
+      "answer": ""
+    },
+    {
+      "id": "7ea35b86b1ef",
+      "claimId": "corollary-11",
+      "kind": "silent",
+      "question": "Paper claim Corollary 11 (corollary-11) states: “The unipotent logarithm $N$ of the cusp monodromy satisfies $N\\in\\spq(\\omega_0)$, and the vanishing plane $\\ker N$ is $\\omega_0$-isotropic. These are the linear-algebraic inputs of a Mumford-type cus…”. No Lean declaration matching it was found among 143 candidates. Closest candidate: `vanishing_plane_isotropic` (score 0.29, but it matches claim proposition-3 better). Is this claim intentionally not formalized, or which declaration should it map to?",
+      "answer": ""
+    }
+  ]
+}
