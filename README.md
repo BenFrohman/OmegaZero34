@@ -189,3 +189,11 @@ interface with a functorial symplectic / tether theory.
 
 Companion notes (same directory as this project’s parent):
 `Omega0_Tether_Bridge_Note.md`, `Omega0_Expanded_Proofs.md`.
+
+## Scope (honest statement, v1.2.0)
+
+- **Proved over ℚ (Lean 4, Mathlib v4.30.0-rc1):** the full *if and only if* of `prop:kernel` — `invariant_params_iff` (`OmegaZero34/Uniqueness.lean:78`), combining `invariant_params` (⇒) and the new `invariant_params_converse` (⇐). Existing scope above is unchanged.
+- **Theorem C is conditional.** Its hypotheses H1–H3 are **not formalized**; only their lattice-level consequence is bundled as the structure argument `InvariantFormQ` (`TetherInterface.lean:39`) of `restriction_lemma`. H4 is not used or axiomatized. Nothing about the geometry of X or S⁶ is proved.
+- **No `sorry`, no `native_decide`.** `#print axioms` reports only `propext`, `Classical.choice`, `Quot.sound`.
+- **PipelineHalt** was used as a paper-to-Lean *wording* comparison. It is not a mathematical verifier; correctness rests on the Lean kernel.
+- Final paper: [`paper/OmegaZero34-final.pdf`](paper/OmegaZero34-final.pdf) (source `.tex`, `.bib`). DOI **10.5281/zenodo.23931657 — reserved, not yet published.**

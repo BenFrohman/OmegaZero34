@@ -7,11 +7,15 @@ authors:
     given-names: "Benjamin Stanley"
     alias: "Investor0x"
     orcid: "https://orcid.org/0009-0006-7068-3718"
-date-released: "2026-08-28"
+date-released: "2026-11-03"
+version: "1.2.0"
 doi: "10.5281/zenodo.22240545"
 url: "https://github.com/BenFrohman/OmegaZero34"
 repository-code: "https://github.com/BenFrohman/OmegaZero34"
 identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23931657"
+    description: "Reserved DOI for v1.2.0 final paper (Zenodo draft, NOT YET PUBLISHED; will not resolve until published)"
   - type: doi
     value: "10.5281/zenodo.22240545"
     description: "Zenodo v2 (latest published version)"
