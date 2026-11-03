@@ -14,8 +14,11 @@ url: "https://github.com/BenFrohman/OmegaZero34"
 repository-code: "https://github.com/BenFrohman/OmegaZero34"
 identifiers:
   - type: doi
+    value: "10.5281/zenodo.23931801"
+    description: "Reserved DOI for the final paper PDF (Zenodo draft, NOT YET PUBLISHED; does not resolve until published)"
+  - type: doi
     value: "10.5281/zenodo.23931657"
-    description: "Reserved DOI for v1.2.0 final paper (Zenodo draft, NOT YET PUBLISHED; will not resolve until published)"
+    description: "Published Zenodo record for GitHub release v1.2.0 (auto-created by GitHub integration)"
   - type: doi
     value: "10.5281/zenodo.22240545"
     description: "Zenodo v2 (latest published version)"
