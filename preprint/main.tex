@@ -40,6 +40,8 @@ Alp\"oge~\protect\cite{AlpogeS6} and are cited, not absorbed.}}
 \date{28 August 2026\\[4pt]
 \normalsize DOI: \href{https://doi.org/10.5281/zenodo.22153742}{\texttt{10.5281/zenodo.22153742}}}
 
+\usepackage{longtable}
+\usepackage{url}
 \begin{document}
 \maketitle
 
@@ -461,6 +463,181 @@ Readers who want a justiciable priority record should use: (i) the earliest publ
 This note does not assert: that OpenAI, Anthropic, xAI, or any other laboratory trained a named model on a named Frohman corpus; that the HopfProblem Lean file is a transcription of the tether; that $X\simeq S^6$ is proved here; that type $(1,6)$ is a defect in Alp\"oge's geometry rather than a precise description of his lattice.
 
 This note does assert: $\Omega_0$ is the unique invariant rational alternating form on the published matrices; a tether restriction, if the tether applies, equals $\lambda\omega_0$; $N$ is symplectic for that form and is not itself the form; $\Pf=6$ is the type, not the tether.
+
+\appendix
+\section{Verification certificate}\label{app:verification-certificate}
+
+The formal development was machine-checked as follows.
+
+{\raggedright
+\begin{itemize}
+\item Repository:\\ {\footnotesize\url{https://github.com/BenFrohman/OmegaZero34}}
+\item Verified commit:\\ {\footnotesize\texttt{05776c9b28e5f6e05f32a7969063c786a8282c35}}
+\item Lean toolchain: \texttt{leanprover/lean4:v4.30.0-rc1}
+\item Mathlib: tag \texttt{v4.30.0-rc1}, commit (from \texttt{lake-manifest.json})\\ {\footnotesize\texttt{0c154d67103f74be3a0f2c509f72ccbf5be9f2a7}}
+\item Continuous integration run (build, axiom audit, \texttt{sorry}/\texttt{axiom} scan; passed):\\ {\footnotesize\url{https://github.com/BenFrohman/OmegaZero34/actions/runs/41574428922}}
+\item SHA-256 of the GitHub source tarball of the verified commit, downloaded twice with identical result:\\ {\footnotesize\url{https://github.com/BenFrohman/OmegaZero34/archive/05776c9b28e5f6e05f32a7969063c786a8282c35.tar.gz}}\\
+{\footnotesize\texttt{dcb4df3d8773c25b738645188818d42fa798e1f48aeb238af85f68e684a84224}}
+\end{itemize}\par}
+
+The tarball hash refers to the verified commit rather than to a release tag, since a document cannot contain the hash of an archive that includes itself. The Lean sources are unchanged between that commit and the release tag.
+
+\textbf{The development contains no \texttt{sorry} and no user-declared axioms.} Every one of the 147 theorems and lemmas listed below depends only on Lean's standard axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} (or on none). The table is the verbatim output of \texttt{lake env lean AxiomAudit.lean} (\texttt{\#print axioms}) on the verified commit.
+
+{\footnotesize
+\begin{longtable}{p{0.55\linewidth}p{0.38\linewidth}}
+\hline
+Lean declaration & \texttt{\#print axioms} \\
+\hline\endhead
+\path{OmegaZero34.engelOrder_gluing} & \texttt{(no axioms)} \\
+\path{OmegaZero34.engelOrder_twelve} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.matrixClaim} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.matrixClaim_not_geometric} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.A0_eq_T1T2_transpose} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A0_mul_T0_transpose} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A0_preserves_adj} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A0_preserves_dualPrim} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A1_eq_T1_pow} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A1_fixes_ε} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A1_mul_T1_transpose} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A1_preserves_adj} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A1_preserves_dualPrim} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A2_eq_T2_pow} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A2_fixes_ε'} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A2_mul_T2_transpose} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A2_preserves_adj} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.A2_preserves_dualPrim} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.adj_eq_36_inv} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.adj_mul_Ω0} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.adjΩ0_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.adjΩ0_eq_six_dual} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0Q_mul_inv} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_mul_adj} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0dualPrim_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0inv_mul_Ω0Q} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.engel_order_identity} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.engel_order_unit} & \texttt{(no axioms)} \\
+\path{OmegaZero34.engel_order_unit_psi} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.not_a_diffeomorphism_certificate} & \texttt{(no axioms)} \\
+\path{Matrix.mul3_apply} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{Matrix.mul_apply_fin4} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{Matrix.eq_skewFour_of_transpose_eq_neg} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{Matrix.skewFour_apply_01} & \texttt{[propext, Quot.sound]} \\
+\path{Matrix.skewFour_apply_02} & \texttt{[propext, Quot.sound]} \\
+\path{Matrix.skewFour_apply_03} & \texttt{[propext, Quot.sound]} \\
+\path{Matrix.skewFour_apply_12} & \texttt{[propext, Quot.sound]} \\
+\path{Matrix.skewFour_apply_13} & \texttt{[propext, Quot.sound]} \\
+\path{Matrix.skewFour_apply_23} & \texttt{[propext, Quot.sound]} \\
+\path{Matrix.skewFour_injective} & \texttt{[propext, Quot.sound]} \\
+\path{Matrix.skewFour_smul} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{Matrix.skewFour_transpose} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T0_preserves_Ω0} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1_preserves_Ω0} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T2_preserves_Ω0} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.ofParams_apply_01} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.ofParams_apply_02} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.ofParams_apply_03} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.ofParams_apply_12} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.ofParams_apply_13} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.ofParams_apply_23} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.ofParams_c_six} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.ofParams_injective} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.ofParams_skew} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.ofParams_smul} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0R_eq_ofParams} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_det_ne_zero} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_eq_ofParams} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_eq_Ω0R} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.Ω0_gamma_delta} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.Ω0_gamma_u} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.Ω0_gamma_w} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.Ω0_pfaffian} & \texttt{[propext]} \\
+\path{OmegaZero34.Ω0_skew} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_u_delta} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.Ω0_u_w} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.Ω0_w_delta} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_00} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_01} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_02} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_03} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_10} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_11} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_12} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_13} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_20} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_21} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_22} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_23} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_30} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_31} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_32} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_33} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_delta} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_eq_NR} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.N_eq_T0_sub_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_gamma} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_mulVec_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_mulVec_three} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_mulVec_two} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_mulVec_zero} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_ne_zero} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_sq} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_u} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_w} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T0_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T0_eq_N_add_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T0_eq_T0R} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.T0_mul_T1T2} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1T2_explicit} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1T2_mul_T0} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1_eq_T1R} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.T1_ne_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1_pow_three} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1_pow_two_ne_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T2_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T2_eq_T2R} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.T2_ne_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T2_pow_four} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T2_pow_three_ne_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T2_pow_two_ne_one} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_mulVec_eq_zero_iff} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.N_sp} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.gamma_mem_ker_N} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.im_N_eq_ker_N} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.im_N_in_gamma_u} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.mem_ker_N} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.u_mem_ker_N} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.vanishing_plane_isotropic} & \texttt{[propext, Quot.sound]} \\
+\path{OmegaZero34.InvariantFormQ.alt} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.InvariantFormQ.nondeg} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.InvariantFormQ.preserves_T1} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.InvariantFormQ.preserves_T2} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.generators_preserve_Ω0} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.restriction_integral} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.restriction_lemma} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.restriction_scalar_unique} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.J16_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.P_det} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.ker_mod_three} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.ker_mod_two} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.not_unimodular} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.type_normal_form} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_mod_three} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.Ω0_mod_two} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T1_conj_ofParams} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.T2_conj_ofParams} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.invariant_ofParams_eq_smul} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.invariant_ofParams_eq_smul_int} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.invariant_params} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.invariant_params_int} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.skew_eq_ofParams} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.uniqueness_integral} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.uniqueness_over_Q} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\path{OmegaZero34.uniqueness_scalar_unique} & \texttt{[propext, Classical.choice, Quot.sound]} \\
+\hline
+\end{longtable}}
 
 \begin{thebibliography}{9}
 \bibitem{AlpogeS6}
