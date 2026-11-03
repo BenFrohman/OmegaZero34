@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 
-[![Lean certificate](https://github.com/BenFrohman/OmegaZero34/actions/workflows/certify.yml/badge.svg)](https://github.com/BenFrohman/OmegaZero34/actions/workflows/certify.yml)
+[![lean.yml](https://github.com/BenFrohman/OmegaZero34/actions/workflows/lean.yml/badge.svg?branch=master)](https://github.com/BenFrohman/OmegaZero34/actions/workflows/lean.yml)
 # The unique monodromy-invariant alternating form of type (1,6)
 
 **Author.** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718)). Lean code Apache-2.0; preprint CC-BY-4.0.
