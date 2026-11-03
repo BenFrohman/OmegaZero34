@@ -30,7 +30,7 @@ def engelOrder (m n : ℤ) : ℕ := Int.natAbs (4 * m + 3 * n)
 
 /-- For the gluing `m = 1`, `n = -1`, the order is `1`. -/
 theorem engelOrder_gluing : engelOrder 1 (-1) = 1 := by
-  native_decide
+  decide
 
 /-- Exact form of `|4*m + 3*n| = |12*(m/3 + n/4)|` at this gluing, over `ℚ`. -/
 theorem engelOrder_twelve :

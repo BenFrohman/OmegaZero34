@@ -40,16 +40,16 @@ def J16 : Matrix (Fin 4) (Fin 4) ℤ :=
       0, 0, 0, 6;
       0, 0, -6, 0]
 
-lemma P_det : P.det = 1 := by native_decide
+lemma P_det : P.det = 1 := by decide
 
-lemma type_normal_form : Pᵀ * Ω0 * P = J16 := by native_decide
+lemma type_normal_form : Pᵀ * Ω0 * P = J16 := by decide
 
-lemma J16_det : J16.det = 36 := by native_decide
+lemma J16_det : J16.det = 36 := by decide
 
 /-- The form is not unimodular: \(\det\Omega_0\neq\pm 1\). -/
 lemma not_unimodular : Ω0.det ≠ 1 ∧ Ω0.det ≠ -1 := by
   rw [Ω0_det]
-  constructor <;> native_decide
+  constructor <;> decide
 
 /-- Reduction modulo \(2\): the \((u,w)\)-plane is in the kernel. -/
 lemma Ω0_mod_two :
@@ -58,7 +58,7 @@ lemma Ω0_mod_two :
          0, 0, 0, 0;
          0, 0, 0, 0;
          1, 0, 0, 0] := by
-  native_decide
+  decide
 
 /-- Reduction modulo \(3\): the \((u,w)\)-plane is in the kernel. -/
 lemma Ω0_mod_three :
@@ -67,7 +67,7 @@ lemma Ω0_mod_three :
          0, 0, 0, 0;
          0, 0, 0, 0;
          2, 0, 0, 0] := by
-  native_decide
+  decide
 
 lemma ker_mod_two (x : Fin 4 → ZMod 2)
     (h : (Ω0.map (Int.cast : ℤ → ZMod 2)) *ᵥ x = 0) :

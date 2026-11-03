@@ -32,12 +32,12 @@ theorem engel_order_identity (m n : ℤ) :
 /-- The gluing values `m = 1`, `n = -1` give order 1. -/
 theorem engel_order_unit :
     Int.natAbs (4 * (1 : ℤ) + 3 * (-1)) = 1 := by
-  native_decide
+  decide
 
 /-- Same unit case through the `12 ψ` writing, with `ψ(a0)=1/3` and `ψ(a1)=-1/4`. -/
 theorem engel_order_unit_psi :
     Int.natAbs (12 * ((1 : ℚ) / 3 + (-1 : ℚ) / 4)).num = 1 := by
-  native_decide
+  norm_num
 
 /-- What this development does not formalize. Kept as documentation, not an axiom. -/
 theorem not_a_diffeomorphism_certificate :

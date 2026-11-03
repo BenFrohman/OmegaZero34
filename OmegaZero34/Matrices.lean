@@ -87,31 +87,31 @@ lemma T2_eq_T2R : T2 = T2R := rfl
 lemma T0_eq_T0R : T0 = T0R := rfl
 lemma N_eq_NR : N = NR := rfl
 
-lemma T1_det : T1.det = 1 := by native_decide
-lemma T2_det : T2.det = 1 := by native_decide
-lemma T0_det : T0.det = 1 := by native_decide
+lemma T1_det : T1.det = 1 := by decide
+lemma T2_det : T2.det = 1 := by decide
+lemma T0_det : T0.det = 1 := by decide
 
 lemma T1T2_explicit :
     T1 * T2 = !![1, 0, 0, -1; 0, 1, 1, 0; 0, 0, 1, 0; 0, 0, 0, 1] := by
-  native_decide
+  decide
 
-lemma T0_mul_T1T2 : T0 * (T1 * T2) = 1 := by native_decide
-lemma T1T2_mul_T0 : (T1 * T2) * T0 = 1 := by native_decide
+lemma T0_mul_T1T2 : T0 * (T1 * T2) = 1 := by decide
+lemma T1T2_mul_T0 : (T1 * T2) * T0 = 1 := by decide
 
-lemma T0_eq_N_add_one : T0 = N + 1 := by native_decide
-lemma N_eq_T0_sub_one : N = T0 - 1 := by native_decide
+lemma T0_eq_N_add_one : T0 = N + 1 := by decide
+lemma N_eq_T0_sub_one : N = T0 - 1 := by decide
 
-lemma T1_pow_three : T1 ^ 3 = 1 := by native_decide
-lemma T1_ne_one : T1 ≠ 1 := by native_decide
-lemma T1_pow_two_ne_one : T1 ^ 2 ≠ 1 := by native_decide
+lemma T1_pow_three : T1 ^ 3 = 1 := by decide
+lemma T1_ne_one : T1 ≠ 1 := by decide
+lemma T1_pow_two_ne_one : T1 ^ 2 ≠ 1 := by decide
 
-lemma T2_pow_four : T2 ^ 4 = 1 := by native_decide
-lemma T2_ne_one : T2 ≠ 1 := by native_decide
-lemma T2_pow_two_ne_one : T2 ^ 2 ≠ 1 := by native_decide
-lemma T2_pow_three_ne_one : T2 ^ 3 ≠ 1 := by native_decide
+lemma T2_pow_four : T2 ^ 4 = 1 := by decide
+lemma T2_ne_one : T2 ≠ 1 := by decide
+lemma T2_pow_two_ne_one : T2 ^ 2 ≠ 1 := by decide
+lemma T2_pow_three_ne_one : T2 ^ 3 ≠ 1 := by decide
 
-lemma N_sq : N * N = 0 := by native_decide
-lemma N_ne_zero : N ≠ 0 := by native_decide
+lemma N_sq : N * N = 0 := by decide
+lemma N_ne_zero : N ≠ 0 := by decide
 
 lemma N_00 : N 0 0 = 0 := by simp [N]
 lemma N_01 : N 0 1 = 0 := by simp [N]
@@ -151,9 +151,9 @@ lemma N_mulVec_three (x : Fin 4 → ℤ) : (N *ᵥ x) 3 = 0 := by
   rw [dotProduct, Fin.sum_univ_four, N_30, N_31, N_32, N_33]
   simp
 
-lemma N_gamma : N.mulVec ![1, 0, 0, 0] = 0 := by native_decide
-lemma N_u : N.mulVec ![0, 1, 0, 0] = 0 := by native_decide
-lemma N_w : N.mulVec ![0, 0, 1, 0] = ![0, -1, 0, 0] := by native_decide
-lemma N_delta : N.mulVec ![0, 0, 0, 1] = ![1, 0, 0, 0] := by native_decide
+lemma N_gamma : N.mulVec ![1, 0, 0, 0] = 0 := by decide
+lemma N_u : N.mulVec ![0, 1, 0, 0] = 0 := by decide
+lemma N_w : N.mulVec ![0, 0, 1, 0] = ![0, -1, 0, 0] := by decide
+lemma N_delta : N.mulVec ![0, 0, 0, 1] = ![1, 0, 0, 0] := by decide
 
 end OmegaZero34

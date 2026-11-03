@@ -26,7 +26,7 @@ namespace OmegaZero34
 
 /-- `N` lies in `sp(ω₀)`: a Hamiltonian infinitesimal symmetry of the tether
 form, not the form itself. -/
-lemma N_sp : Nᵀ * Ω0 + Ω0 * N = 0 := by native_decide
+lemma N_sp : Nᵀ * Ω0 + Ω0 * N = 0 := by decide
 
 lemma N_mulVec_eq_zero_iff (x : Fin 4 → ℤ) :
     N.mulVec x = 0 ↔ x 2 = 0 ∧ x 3 = 0 := by

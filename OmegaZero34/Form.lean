@@ -60,23 +60,23 @@ lemma ofParams_skew {R : Type*} [CommRing R] (a b c d e f : R) :
     (ofParams a b c d e f)ᵀ = -(ofParams a b c d e f) :=
   skewFour_transpose a b c d e f
 
-lemma Ω0_skew : Ω0ᵀ = -Ω0 := by native_decide
+lemma Ω0_skew : Ω0ᵀ = -Ω0 := by decide
 
 /-- Paper name for `Matrix.pfaffianFour`. `Pf(Ω0) = 6` is a scalar of the form,
 not the tether. -/
 abbrev pfaffian4 {R : Type*} [CommRing R] := pfaffianFour (R := R)
 
-lemma Ω0_pfaffian : pfaffian4 (0 : ℤ) 0 1 6 0 0 = 6 := by native_decide
+lemma Ω0_pfaffian : pfaffian4 (0 : ℤ) 0 1 6 0 0 = 6 := by decide
 
-lemma Ω0_det : Ω0.det = 36 := by native_decide
+lemma Ω0_det : Ω0.det = 36 := by decide
 
 lemma Ω0_det_ne_zero : Ω0.det ≠ 0 := by
   rw [Ω0_det]
-  native_decide
+  decide
 
-lemma T1_preserves_Ω0 : T1ᵀ * Ω0 * T1 = Ω0 := by native_decide
-lemma T2_preserves_Ω0 : T2ᵀ * Ω0 * T2 = Ω0 := by native_decide
-lemma T0_preserves_Ω0 : T0ᵀ * Ω0 * T0 = Ω0 := by native_decide
+lemma T1_preserves_Ω0 : T1ᵀ * Ω0 * T1 = Ω0 := by decide
+lemma T2_preserves_Ω0 : T2ᵀ * Ω0 * T2 = Ω0 := by decide
+lemma T0_preserves_Ω0 : T0ᵀ * Ω0 * T0 = Ω0 := by decide
 
 /-- Pairings of basis vectors. Indices: 0=γ, 1=u, 2=w, 3=δ. -/
 lemma Ω0_gamma_delta : Ω0 0 3 = 1 := rfl

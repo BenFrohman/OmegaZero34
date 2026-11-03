@@ -41,13 +41,13 @@ def A0 : Matrix (Fin 4) (Fin 4) ℤ :=
       0, 1, 1, 0;
      -1, 0, 0, 1]
 
-lemma A1_eq_T1_pow : A1 = (T1 ^ 2)ᵀ := by native_decide
-lemma A2_eq_T2_pow : A2 = (T2 ^ 3)ᵀ := by native_decide
-lemma A0_eq_T1T2_transpose : A0 = (T1 * T2)ᵀ := by native_decide
+lemma A1_eq_T1_pow : A1 = (T1 ^ 2)ᵀ := by decide
+lemma A2_eq_T2_pow : A2 = (T2 ^ 3)ᵀ := by decide
+lemma A0_eq_T1T2_transpose : A0 = (T1 * T2)ᵀ := by decide
 
-lemma A1_mul_T1_transpose : A1 * T1ᵀ = 1 := by native_decide
-lemma A2_mul_T2_transpose : A2 * T2ᵀ = 1 := by native_decide
-lemma A0_mul_T0_transpose : A0 * T0ᵀ = 1 := by native_decide
+lemma A1_mul_T1_transpose : A1 * T1ᵀ = 1 := by decide
+lemma A2_mul_T2_transpose : A2 * T2ᵀ = 1 := by decide
+lemma A0_mul_T0_transpose : A0 * T0ᵀ = 1 := by decide
 
 /-- Source vector \(\varepsilon=\hat\gamma+2\hat u-4\hat w\). -/
 def ε : Fin 4 → ℤ := ![1, 2, -4, 0]
@@ -55,8 +55,8 @@ def ε : Fin 4 → ℤ := ![1, 2, -4, 0]
 /-- Source vector \(\varepsilon'=\hat\gamma+3\hat u-3\hat w\). -/
 def ε' : Fin 4 → ℤ := ![1, 3, -3, 0]
 
-lemma A1_fixes_ε : A1.mulVec ε = ε := by native_decide
-lemma A2_fixes_ε' : A2.mulVec ε' = ε' := by native_decide
+lemma A1_fixes_ε : A1.mulVec ε = ε := by decide
+lemma A2_fixes_ε' : A2.mulVec ε' = ε' := by decide
 
 /-- Classical adjoint of \(\Omega_0\). Equals \(36\cdot\Omega_0^{-1}\). -/
 def adjΩ0 : Matrix (Fin 4) (Fin 4) ℤ :=
@@ -66,12 +66,12 @@ def adjΩ0 : Matrix (Fin 4) (Fin 4) ℤ :=
      36,  0,  0,   0]
 
 lemma Ω0_mul_adj : Ω0 * adjΩ0 = (36 : ℤ) • (1 : Matrix (Fin 4) (Fin 4) ℤ) := by
-  native_decide
+  decide
 
 lemma adj_mul_Ω0 : adjΩ0 * Ω0 = (36 : ℤ) • (1 : Matrix (Fin 4) (Fin 4) ℤ) := by
-  native_decide
+  decide
 
-lemma adjΩ0_det : adjΩ0.det = 46656 := by native_decide
+lemma adjΩ0_det : adjΩ0.det = 46656 := by decide
 
 /-- Primitive integral generator of the dual ray (content \(6\)). -/
 def Ω0dualPrim : Matrix (Fin 4) (Fin 4) ℤ :=
@@ -80,17 +80,17 @@ def Ω0dualPrim : Matrix (Fin 4) (Fin 4) ℤ :=
      0,  1,  0,  0;
      6,  0,  0,  0]
 
-lemma adjΩ0_eq_six_dual : adjΩ0 = (6 : ℤ) • Ω0dualPrim := by native_decide
+lemma adjΩ0_eq_six_dual : adjΩ0 = (6 : ℤ) • Ω0dualPrim := by decide
 
-lemma Ω0dualPrim_det : Ω0dualPrim.det = 36 := by native_decide
+lemma Ω0dualPrim_det : Ω0dualPrim.det = 36 := by decide
 
-lemma A1_preserves_adj : A1ᵀ * adjΩ0 * A1 = adjΩ0 := by native_decide
-lemma A2_preserves_adj : A2ᵀ * adjΩ0 * A2 = adjΩ0 := by native_decide
-lemma A0_preserves_adj : A0ᵀ * adjΩ0 * A0 = adjΩ0 := by native_decide
+lemma A1_preserves_adj : A1ᵀ * adjΩ0 * A1 = adjΩ0 := by decide
+lemma A2_preserves_adj : A2ᵀ * adjΩ0 * A2 = adjΩ0 := by decide
+lemma A0_preserves_adj : A0ᵀ * adjΩ0 * A0 = adjΩ0 := by decide
 
-lemma A1_preserves_dualPrim : A1ᵀ * Ω0dualPrim * A1 = Ω0dualPrim := by native_decide
-lemma A2_preserves_dualPrim : A2ᵀ * Ω0dualPrim * A2 = Ω0dualPrim := by native_decide
-lemma A0_preserves_dualPrim : A0ᵀ * Ω0dualPrim * A0 = Ω0dualPrim := by native_decide
+lemma A1_preserves_dualPrim : A1ᵀ * Ω0dualPrim * A1 = Ω0dualPrim := by decide
+lemma A2_preserves_dualPrim : A2ᵀ * Ω0dualPrim * A2 = Ω0dualPrim := by decide
+lemma A0_preserves_dualPrim : A0ᵀ * Ω0dualPrim * A0 = Ω0dualPrim := by decide
 
 /-- Inverse form over \(\mathbb{Q}\). -/
 def Ω0inv : Matrix (Fin 4) (Fin 4) ℚ :=
@@ -101,14 +101,20 @@ def Ω0inv : Matrix (Fin 4) (Fin 4) ℚ :=
 
 lemma Ω0Q_mul_inv :
     (Ω0.map (Int.cast : ℤ → ℚ)) * Ω0inv = 1 := by
-  native_decide
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Ω0, Ω0inv, adjΩ0, Matrix.mul_apply, Fin.sum_univ_four] <;> norm_num
 
 lemma Ω0inv_mul_Ω0Q :
     Ω0inv * (Ω0.map (Int.cast : ℤ → ℚ)) = 1 := by
-  native_decide
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Ω0, Ω0inv, adjΩ0, Matrix.mul_apply, Fin.sum_univ_four] <;> norm_num
 
 lemma adj_eq_36_inv :
     adjΩ0.map (Int.cast : ℤ → ℚ) = (36 : ℚ) • Ω0inv := by
-  native_decide
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Ω0, Ω0inv, adjΩ0, Matrix.mul_apply, Fin.sum_univ_four] <;> norm_num
 
 end OmegaZero34
