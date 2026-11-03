@@ -1,0 +1,162 @@
+-- Axiom audit: prints the axioms of every theorem/lemma in the project.
+-- CI fails unless each depends only on propext, Classical.choice, Quot.sound (or none).
+import OmegaZero34.Claim
+import OmegaZero34.Dual
+import OmegaZero34.EngelOrder
+import OmegaZero34.ForMathlib.MulFinFour
+import OmegaZero34.ForMathlib.SkewFour
+import OmegaZero34.Form
+import OmegaZero34.Matrices
+import OmegaZero34.Nilpotent
+import OmegaZero34.PrintAxioms
+import OmegaZero34.TetherInterface
+import OmegaZero34.Type
+import OmegaZero34.Uniqueness
+
+#print axioms OmegaZero34.engelOrder_gluing
+#print axioms OmegaZero34.engelOrder_twelve
+#print axioms OmegaZero34.matrixClaim
+#print axioms OmegaZero34.matrixClaim_not_geometric
+#print axioms OmegaZero34.A0_eq_T1T2_transpose
+#print axioms OmegaZero34.A0_mul_T0_transpose
+#print axioms OmegaZero34.A0_preserves_adj
+#print axioms OmegaZero34.A0_preserves_dualPrim
+#print axioms OmegaZero34.A1_eq_T1_pow
+#print axioms OmegaZero34.A1_fixes_ε
+#print axioms OmegaZero34.A1_mul_T1_transpose
+#print axioms OmegaZero34.A1_preserves_adj
+#print axioms OmegaZero34.A1_preserves_dualPrim
+#print axioms OmegaZero34.A2_eq_T2_pow
+#print axioms OmegaZero34.A2_fixes_ε'
+#print axioms OmegaZero34.A2_mul_T2_transpose
+#print axioms OmegaZero34.A2_preserves_adj
+#print axioms OmegaZero34.A2_preserves_dualPrim
+#print axioms OmegaZero34.adj_eq_36_inv
+#print axioms OmegaZero34.adj_mul_Ω0
+#print axioms OmegaZero34.adjΩ0_det
+#print axioms OmegaZero34.adjΩ0_eq_six_dual
+#print axioms OmegaZero34.Ω0Q_mul_inv
+#print axioms OmegaZero34.Ω0_mul_adj
+#print axioms OmegaZero34.Ω0dualPrim_det
+#print axioms OmegaZero34.Ω0inv_mul_Ω0Q
+#print axioms OmegaZero34.engel_order_identity
+#print axioms OmegaZero34.engel_order_unit
+#print axioms OmegaZero34.engel_order_unit_psi
+#print axioms OmegaZero34.not_a_diffeomorphism_certificate
+#print axioms Matrix.mul3_apply
+#print axioms Matrix.mul_apply_fin4
+#print axioms Matrix.eq_skewFour_of_transpose_eq_neg
+#print axioms Matrix.skewFour_apply_01
+#print axioms Matrix.skewFour_apply_02
+#print axioms Matrix.skewFour_apply_03
+#print axioms Matrix.skewFour_apply_12
+#print axioms Matrix.skewFour_apply_13
+#print axioms Matrix.skewFour_apply_23
+#print axioms Matrix.skewFour_injective
+#print axioms Matrix.skewFour_smul
+#print axioms Matrix.skewFour_transpose
+#print axioms OmegaZero34.T0_preserves_Ω0
+#print axioms OmegaZero34.T1_preserves_Ω0
+#print axioms OmegaZero34.T2_preserves_Ω0
+#print axioms OmegaZero34.ofParams_apply_01
+#print axioms OmegaZero34.ofParams_apply_02
+#print axioms OmegaZero34.ofParams_apply_03
+#print axioms OmegaZero34.ofParams_apply_12
+#print axioms OmegaZero34.ofParams_apply_13
+#print axioms OmegaZero34.ofParams_apply_23
+#print axioms OmegaZero34.ofParams_c_six
+#print axioms OmegaZero34.ofParams_injective
+#print axioms OmegaZero34.ofParams_skew
+#print axioms OmegaZero34.ofParams_smul
+#print axioms OmegaZero34.Ω0R_eq_ofParams
+#print axioms OmegaZero34.Ω0_det
+#print axioms OmegaZero34.Ω0_det_ne_zero
+#print axioms OmegaZero34.Ω0_eq_ofParams
+#print axioms OmegaZero34.Ω0_eq_Ω0R
+#print axioms OmegaZero34.Ω0_gamma_delta
+#print axioms OmegaZero34.Ω0_gamma_u
+#print axioms OmegaZero34.Ω0_gamma_w
+#print axioms OmegaZero34.Ω0_pfaffian
+#print axioms OmegaZero34.Ω0_skew
+#print axioms OmegaZero34.Ω0_u_delta
+#print axioms OmegaZero34.Ω0_u_w
+#print axioms OmegaZero34.Ω0_w_delta
+#print axioms OmegaZero34.N_00
+#print axioms OmegaZero34.N_01
+#print axioms OmegaZero34.N_02
+#print axioms OmegaZero34.N_03
+#print axioms OmegaZero34.N_10
+#print axioms OmegaZero34.N_11
+#print axioms OmegaZero34.N_12
+#print axioms OmegaZero34.N_13
+#print axioms OmegaZero34.N_20
+#print axioms OmegaZero34.N_21
+#print axioms OmegaZero34.N_22
+#print axioms OmegaZero34.N_23
+#print axioms OmegaZero34.N_30
+#print axioms OmegaZero34.N_31
+#print axioms OmegaZero34.N_32
+#print axioms OmegaZero34.N_33
+#print axioms OmegaZero34.N_delta
+#print axioms OmegaZero34.N_eq_NR
+#print axioms OmegaZero34.N_eq_T0_sub_one
+#print axioms OmegaZero34.N_gamma
+#print axioms OmegaZero34.N_mulVec_one
+#print axioms OmegaZero34.N_mulVec_three
+#print axioms OmegaZero34.N_mulVec_two
+#print axioms OmegaZero34.N_mulVec_zero
+#print axioms OmegaZero34.N_ne_zero
+#print axioms OmegaZero34.N_sq
+#print axioms OmegaZero34.N_u
+#print axioms OmegaZero34.N_w
+#print axioms OmegaZero34.T0_det
+#print axioms OmegaZero34.T0_eq_N_add_one
+#print axioms OmegaZero34.T0_eq_T0R
+#print axioms OmegaZero34.T0_mul_T1T2
+#print axioms OmegaZero34.T1T2_explicit
+#print axioms OmegaZero34.T1T2_mul_T0
+#print axioms OmegaZero34.T1_det
+#print axioms OmegaZero34.T1_eq_T1R
+#print axioms OmegaZero34.T1_ne_one
+#print axioms OmegaZero34.T1_pow_three
+#print axioms OmegaZero34.T1_pow_two_ne_one
+#print axioms OmegaZero34.T2_det
+#print axioms OmegaZero34.T2_eq_T2R
+#print axioms OmegaZero34.T2_ne_one
+#print axioms OmegaZero34.T2_pow_four
+#print axioms OmegaZero34.T2_pow_three_ne_one
+#print axioms OmegaZero34.T2_pow_two_ne_one
+#print axioms OmegaZero34.N_mulVec_eq_zero_iff
+#print axioms OmegaZero34.N_sp
+#print axioms OmegaZero34.gamma_mem_ker_N
+#print axioms OmegaZero34.im_N_eq_ker_N
+#print axioms OmegaZero34.im_N_in_gamma_u
+#print axioms OmegaZero34.mem_ker_N
+#print axioms OmegaZero34.u_mem_ker_N
+#print axioms OmegaZero34.vanishing_plane_isotropic
+#print axioms OmegaZero34.InvariantFormQ.alt
+#print axioms OmegaZero34.InvariantFormQ.nondeg
+#print axioms OmegaZero34.InvariantFormQ.preserves_T1
+#print axioms OmegaZero34.InvariantFormQ.preserves_T2
+#print axioms OmegaZero34.generators_preserve_Ω0
+#print axioms OmegaZero34.restriction_integral
+#print axioms OmegaZero34.restriction_lemma
+#print axioms OmegaZero34.restriction_scalar_unique
+#print axioms OmegaZero34.J16_det
+#print axioms OmegaZero34.P_det
+#print axioms OmegaZero34.ker_mod_three
+#print axioms OmegaZero34.ker_mod_two
+#print axioms OmegaZero34.not_unimodular
+#print axioms OmegaZero34.type_normal_form
+#print axioms OmegaZero34.Ω0_mod_three
+#print axioms OmegaZero34.Ω0_mod_two
+#print axioms OmegaZero34.T1_conj_ofParams
+#print axioms OmegaZero34.T2_conj_ofParams
+#print axioms OmegaZero34.invariant_ofParams_eq_smul
+#print axioms OmegaZero34.invariant_ofParams_eq_smul_int
+#print axioms OmegaZero34.invariant_params
+#print axioms OmegaZero34.invariant_params_int
+#print axioms OmegaZero34.skew_eq_ofParams
+#print axioms OmegaZero34.uniqueness_integral
+#print axioms OmegaZero34.uniqueness_over_Q
+#print axioms OmegaZero34.uniqueness_scalar_unique
