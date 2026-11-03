@@ -63,6 +63,24 @@ theorem invariant_params (a b c d e f : ℚ)
   · linarith
   · linarith
 
+/-- Converse of `invariant_params` (Proposition `prop:kernel`, "if" direction):
+the parameters `a = b = e = f = 0`, `d = 6 * c` make both residuals vanish. -/
+theorem invariant_params_converse (a b c d e f : ℚ)
+    (h : a = 0 ∧ b = 0 ∧ e = 0 ∧ f = 0 ∧ d = 6 * c) :
+    transpose T1R * ofParams a b c d e f * T1R = ofParams a b c d e f ∧
+    transpose T2R * ofParams a b c d e f * T2R = ofParams a b c d e f := by
+  obtain ⟨rfl, rfl, rfl, rfl, rfl⟩ := h
+  refine ⟨?_, ?_⟩
+  · rw [T1_conj_ofParams, ofParams_injective]; refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;> ring
+  · rw [T2_conj_ofParams, ofParams_injective]; refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;> ring
+
+/-- Proposition `prop:kernel` as stated in the paper (both directions). -/
+theorem invariant_params_iff (a b c d e f : ℚ) :
+    (transpose T1R * ofParams a b c d e f * T1R = ofParams a b c d e f ∧
+      transpose T2R * ofParams a b c d e f * T2R = ofParams a b c d e f) ↔
+    (a = 0 ∧ b = 0 ∧ e = 0 ∧ f = 0 ∧ d = 6 * c) :=
+  ⟨fun h => invariant_params a b c d e f h.1 h.2, invariant_params_converse a b c d e f⟩
+
 theorem invariant_params_int (a b c d e f : ℤ)
     (h1 : transpose T1R * ofParams a b c d e f * T1R = ofParams a b c d e f)
     (h2 : transpose T2R * ofParams a b c d e f * T2R = ofParams a b c d e f) :
