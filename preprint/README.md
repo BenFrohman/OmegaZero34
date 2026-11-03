@@ -63,10 +63,10 @@ The accompanying Lean 4 library (`OmegaZero34`) is the kernel-checked form of Th
 | Lean name | Matches | Axioms |
 |---|---|---|
 | `uniqueness_over_Q` / `uniqueness_integral` | Theorem A | `propext`, `Classical.choice`, `Quot.sound` |
-| `N_sp` plus kernel/image lemmas | Theorem B | `native_decide` on the matrix identity; rest algebraic |
+| `N_sp` plus kernel/image lemmas | Theorem B | kernel `decide` on the matrix identity; rest algebraic |
 | `restriction_lemma` | Theorem C as an implication from a structure of hypotheses | `propext`, `Classical.choice`, `Quot.sound` |
 
-Concrete \(4\times 4\) integer identities (`T1_preserves_Ω0`, dets, orders, dual fixed vectors) use disclosed `native_decide`. H1–H4 of a geometric tether manuscript are *not* kernel-checked; only the implication “alternating + invariant + nondegenerate \(\Rightarrow\lambda\Omega_0\)” is.
+Concrete \(4\times 4\) integer identities (`T1_preserves_Ω0`, dets, orders, dual fixed vectors) are kernel-checked by `decide` (no `native_decide`). H1–H4 of a geometric tether manuscript are *not* kernel-checked; only the implication “alternating + invariant + nondegenerate \(\Rightarrow\lambda\Omega_0\)” is.
 
 Do not cite any other Lean file, draft, or `sorry` sketch as the formalization of this note.
 

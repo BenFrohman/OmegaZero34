@@ -4,33 +4,13 @@
 Recorded by `lake build OmegaZero34` against Lean 4.30.0-rc1 + Mathlib `v4.30.0-rc1`.
 Date: 2026-08-28.
 
-`native_decide` is used only for concrete \(4\times 4\) integer identities
-(determinants, powers, `Tᵢᵀ Ω₀ Tᵢ = Ω₀`, dual fixed vectors, type normal
-form). The uniqueness theorem and the restriction lemma do **not** use
-`native_decide`.
+**Update (2026-11-02):** every former `native_decide` proof has been replaced by a
+kernel-checked proof (`decide`, `norm_num`, or `ext`/`fin_cases`/`simp`); no theorem
+statement changed. The development no longer depends on `Lean.ofReduceBool`. Every
+theorem and lemma now depends only on `[propext, Classical.choice, Quot.sound]` (or no
+axioms); see `AxiomAudit.lean` and the *Lean certificate* CI workflow, which enforces this.
 
-## Concrete integer identities (`native_decide`)
-
-These depend on `[propext, Classical.choice, Quot.sound]` plus a
-compiler-checked `native_decide` axiom for the finite integer computation.
-
-| Theorem | Extra axiom |
-|---|---|
-| `T1_det` | `T1_det._native.native_decide.ax_1_1` |
-| `T1_pow_three` | `T1_pow_three._native.native_decide.ax_1_1` |
-| `T2_pow_four` | `T2_pow_four._native.native_decide.ax_1_1` |
-| `N_sq` | `N_sq._native.native_decide.ax_1_1` |
-| `Ω0_skew` | `Ω0_skew._native.native_decide.ax_1_1` |
-| `Ω0_det` | `Ω0_det._native.native_decide.ax_1_1` |
-| `T1_preserves_Ω0` | `T1_preserves_Ω0._native.native_decide.ax_1_1` |
-| `T2_preserves_Ω0` | `T2_preserves_Ω0._native.native_decide.ax_1_1` |
-| `T0_preserves_Ω0` | `T0_preserves_Ω0._native.native_decide.ax_1_1` |
-| `N_sp` | `N_sp._native.native_decide.ax_1_1` |
-| `type_normal_form` | `type_normal_form._native.native_decide.ax_1_1` |
-| `A1_fixes_ε` | `A1_fixes_ε._native.native_decide.ax_1_1` |
-| `A2_fixes_ε'` | `A2_fixes_ε'._native.native_decide.ax_1_1` |
-
-## Uniqueness and restriction (no `native_decide`)
+## Uniqueness and restriction
 
 These depend only on `[propext, Classical.choice, Quot.sound]`.
 

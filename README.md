@@ -164,7 +164,7 @@ Headline theorems print their axiom traces during the build (see
 
 `uniqueness_over_Q` and `restriction_lemma` depend only on
 `propext`, `Classical.choice`, and `Quot.sound`. Concrete \(4\times 4\)
-integer identities use disclosed `native_decide`.
+integer identities are kernel-checked (`decide`/`norm_num`; no `native_decide`).
 
 ## Files
 
