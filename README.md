@@ -197,3 +197,10 @@ Companion notes (same directory as this project’s parent):
 - **No `sorry`, no `native_decide`.** `#print axioms` reports only `propext`, `Classical.choice`, `Quot.sound`.
 - **PipelineHalt** was used as a paper-to-Lean *wording* comparison. It is not a mathematical verifier; correctness rests on the Lean kernel.
 - Final paper: [`paper/OmegaZero34-final.pdf`](paper/OmegaZero34-final.pdf) (source `.tex`, `.bib`). Zenodo: the v1.2.0 release was published as [10.5281/zenodo.23931657](https://doi.org/10.5281/zenodo.23931657) (created automatically by the GitHub–Zenodo integration; its metadata and files predate this final paper). The final paper PDF in this repo is byte-identical to the one in Zenodo draft **10.5281/zenodo.23931801 — reserved, not yet published** (resolves only after publication).
+
+
+## Zenodo: bridge_implication
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23942461.svg)](https://doi.org/10.5281/zenodo.23942461)
+
+The paper `preprint/bridge_implication.pdf` is archived on Zenodo as https://doi.org/10.5281/zenodo.23942461.
