@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use or reference this work, please cite it as below."
 title: "The unique monodromy-invariant alternating form of type (1,6) on a (3,4,∞) lattice representation, and the restriction of a functorial symplectic structure"
-type: article
+type: software
 authors:
   - family-names: "Frohman"
     given-names: "Benjamin Stanley"
