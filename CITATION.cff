@@ -5,7 +5,7 @@ type: article
 authors:
   - family-names: "Frohman"
     given-names: "Benjamin Stanley"
-    alias: "Investor0x"
+    alias: "B.S. Frohman"
     orcid: "https://orcid.org/0009-0006-7068-3718"
 date-released: "2026-11-03"
 version: "1.2.0"
