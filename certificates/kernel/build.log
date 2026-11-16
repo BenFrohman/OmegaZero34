@@ -1,0 +1,74 @@
+✔ [3285/3297] Built OmegaZero34.ForMathlib.MulFinFour (1.6s)
+✔ [3286/3297] Built OmegaZero34.EngelOrder (2.5s)
+✔ [3287/3297] Built OmegaZero34.ForMathlib.SkewFour (3.6s)
+✔ [3288/3297] Built OmegaZero34.Matrices (3.8s)
+✔ [3289/3297] Built OmegaZero34.Form (2.6s)
+✔ [3290/3297] Built OmegaZero34.Claim (3.2s)
+✔ [3291/3297] Built OmegaZero34.Nilpotent (3.5s)
+⚠ [3292/3297] Built OmegaZero34.Dual (6.6s)
+warning: OmegaZero34/Dual.lean:106:21: This simp argument is unused:
+  adjΩ0
+
+Hint: Omit it from the simp argument list.
+  simp [Ω0, Ω0inv, a̵d̵j̵Ω̵0̵,̵ ̵Matrix.mul_apply, Fin.sum_univ_four]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: OmegaZero34/Dual.lean:106:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OmegaZero34/Dual.lean:112:21: This simp argument is unused:
+  adjΩ0
+
+Hint: Omit it from the simp argument list.
+  simp [Ω0, Ω0inv, a̵d̵j̵Ω̵0̵,̵ ̵Matrix.mul_apply, Fin.sum_univ_four]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: OmegaZero34/Dual.lean:112:69: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OmegaZero34/Dual.lean:112:69: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OmegaZero34/Dual.lean:118:10: This simp argument is unused:
+  Ω0
+
+Hint: Omit it from the simp argument list.
+  simp [Ω0,̵ ̵Ω̵0̵inv, adjΩ0, Matrix.mul_apply, Fin.sum_univ_four]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: OmegaZero34/Dual.lean:118:28: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Ω0, Ω0inv, adjΩ0, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵a̵p̵p̵l̵y̵,̵ ̵Fin.sum_univ_four]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: OmegaZero34/Dual.lean:118:46: This simp argument is unused:
+  Fin.sum_univ_four
+
+Hint: Omit it from the simp argument list.
+  simp [Ω0, Ω0inv, adjΩ0, Matrix.mul_apply,̵ ̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵f̵o̵u̵r̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3293/3297] Built OmegaZero34.Type (4.2s)
+✔ [3294/3297] Built OmegaZero34.Uniqueness (9.4s)
+✔ [3295/3297] Built OmegaZero34.TetherInterface (1.9s)
+ℹ [3296/3297] Built OmegaZero34.PrintAxioms (1.7s)
+info: OmegaZero34/PrintAxioms.lean:18:0: 'OmegaZero34.T1_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:19:0: 'OmegaZero34.T1_pow_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:20:0: 'OmegaZero34.T2_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:21:0: 'OmegaZero34.N_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:22:0: 'OmegaZero34.Ω0_skew' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:23:0: 'OmegaZero34.Ω0_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:24:0: 'OmegaZero34.T1_preserves_Ω0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:25:0: 'OmegaZero34.T2_preserves_Ω0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:26:0: 'OmegaZero34.T0_preserves_Ω0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:27:0: 'OmegaZero34.invariant_params' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:28:0: 'OmegaZero34.uniqueness_over_Q' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:29:0: 'OmegaZero34.uniqueness_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:30:0: 'OmegaZero34.restriction_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:31:0: 'OmegaZero34.N_sp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:32:0: 'OmegaZero34.type_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:33:0: 'OmegaZero34.A1_fixes_ε' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OmegaZero34/PrintAxioms.lean:34:0: 'OmegaZero34.A2_fixes_ε'' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3297 jobs).
