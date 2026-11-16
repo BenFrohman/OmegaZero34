@@ -3,7 +3,7 @@
 
 **Primary author of this contributory work**
 
-- Benjamin Stanley Frohman (Investor0x / Bit21) — author of the uniqueness
+- Benjamin Stanley Frohman (Frohmanian / Bit21) — author of the uniqueness
   theorem for \(\Omega_0\), the restriction lemma, the Lean 4 library
   `OmegaZero34`, the preprint `preprint/main.tex`, and the generic
   `ForMathlib` matrix lemmas extracted for upstream.
