@@ -1,0 +1,18 @@
+checker: leanchecker source shipped with v4.30.0-rc1 (src/lean/LeanChecker.lean), prefix match -> exact match, run with lean --run
+  patch: 93c93
+  patch: <         if !fresh && target.isPrefixOf m || target == m then
+  patch: ---
+  patch: >         if !fresh && target == m || target == m then
+OmegaZero34.Claim: OK (1 module replayed)
+OmegaZero34.Dual: OK (1 module replayed)
+OmegaZero34.EngelOrder: OK (1 module replayed)
+OmegaZero34.ForMathlib.MulFinFour: OK (1 module replayed)
+OmegaZero34.ForMathlib.SkewFour: OK (1 module replayed)
+OmegaZero34.Form: OK (1 module replayed)
+OmegaZero34.Matrices: OK (1 module replayed)
+OmegaZero34.Nilpotent: OK (1 module replayed)
+OmegaZero34.PrintAxioms: OK (1 module replayed)
+OmegaZero34.TetherInterface: OK (1 module replayed)
+OmegaZero34.Type: OK (1 module replayed)
+OmegaZero34.Uniqueness: OK (1 module replayed)
+RESULT: 12 of 12 modules replayed through the kernel, 0 failures

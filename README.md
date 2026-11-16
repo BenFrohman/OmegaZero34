@@ -3,6 +3,10 @@
 [![lean.yml](https://github.com/BenFrohman/OmegaZero34/actions/workflows/lean.yml/badge.svg?branch=master)](https://github.com/BenFrohman/OmegaZero34/actions/workflows/lean.yml)
 # The unique monodromy-invariant alternating form of type (1,6)
 
+## Kernel certificate
+
+[certificates/kernel/CERTIFICATE.md](certificates/kernel/CERTIFICATE.md): commit `4395dbd`, `leanprover/lean4:v4.30.0-rc1`. `lake build` passes; the sorry/axiom scan finds 0 hits; **160 theorems depend only on `propext`, `Classical.choice`, `Quot.sound`**; 12 of 12 modules replayed through the kernel, 0 failures ([CI run](https://github.com/BenFrohman/OmegaZero34/actions/runs/43937949238)).
+
 **Author.** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718)). Lean code Apache-2.0; preprint CC-BY-4.0.
 **Published Zenodo DOIs.** Latest v2: [10.5281/zenodo.22240545](https://doi.org/10.5281/zenodo.22240545) · v1: [10.5281/zenodo.22153742](https://doi.org/10.5281/zenodo.22153742) · Concept DOI: [10.5281/zenodo.22153741](https://doi.org/10.5281/zenodo.22153741).
 See `AUTHORS.md`, `COPYRIGHT.md`, `CITATION.cff`. Alpöge is cited for
