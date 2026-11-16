@@ -1,0 +1,35 @@
+import Lean
+import «OmegaZero34».«Claim»
+import «OmegaZero34».«Dual»
+import «OmegaZero34».«EngelOrder»
+import «OmegaZero34».«ForMathlib».«MulFinFour»
+import «OmegaZero34».«ForMathlib».«SkewFour»
+import «OmegaZero34».«Form»
+import «OmegaZero34».«Matrices»
+import «OmegaZero34».«Nilpotent»
+import «OmegaZero34».«PrintAxioms»
+import «OmegaZero34».«TetherInterface»
+import «OmegaZero34».«Type»
+import «OmegaZero34».«Uniqueness»
+
+open Lean Elab Command
+
+/-- Prints `#print axioms`-style lines for every theorem declared in the listed modules. -/
+elab "#kernel_certificate_audit" : command => do
+  let env ← getEnv
+  let mods : Array Name := #[`«OmegaZero34».«Claim», `«OmegaZero34».«Dual», `«OmegaZero34».«EngelOrder», `«OmegaZero34».«ForMathlib».«MulFinFour», `«OmegaZero34».«ForMathlib».«SkewFour», `«OmegaZero34».«Form», `«OmegaZero34».«Matrices», `«OmegaZero34».«Nilpotent», `«OmegaZero34».«PrintAxioms», `«OmegaZero34».«TetherInterface», `«OmegaZero34».«Type», `«OmegaZero34».«Uniqueness»]
+  for m in mods do
+    match env.getModuleIdx? m with
+    | none => IO.println s!"MODULE NOT LOADED {m}"
+    | some i =>
+      for n in (env.header.moduleData[i.toNat]!).constNames do
+        match env.find? n with
+        | some (.thmInfo _) =>
+          if !n.isInternal then
+            let ax ← collectAxioms n
+            let axs := ", ".intercalate (ax.toList.map toString)
+            if ax.isEmpty then IO.println s!"'{n}' does not depend on any axioms [module {m}]"
+            else IO.println s!"'{n}' depends on axioms: [{axs}] [module {m}]"
+        | _ => pure ()
+
+#kernel_certificate_audit
