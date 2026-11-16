@@ -1,3 +1,9 @@
+/-
+Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Stanley Frohman
+-/
+
 -- Axiom audit: prints the axioms of every theorem/lemma in the project.
 -- CI fails unless each depends only on propext, Classical.choice, Quot.sound (or none).
 import OmegaZero34.Claim
@@ -12,6 +18,12 @@ import OmegaZero34.PrintAxioms
 import OmegaZero34.TetherInterface
 import OmegaZero34.Type
 import OmegaZero34.Uniqueness
+
+/-!
+# AxiomAudit
+
+Machine-checked Lean 4 module.
+-/
 
 #print axioms OmegaZero34.engelOrder_gluing
 #print axioms OmegaZero34.engelOrder_twelve

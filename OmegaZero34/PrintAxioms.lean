@@ -3,6 +3,7 @@ Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Benjamin Stanley Frohman
 -/
+
 import OmegaZero34.Matrices
 import OmegaZero34.Form
 import OmegaZero34.Uniqueness
@@ -12,6 +13,8 @@ import OmegaZero34.Type
 import OmegaZero34.TetherInterface
 
 /-!
+# OmegaZero34.PrintAxioms
+
 Dump `#print axioms` for the headline theorems during `lake build`.
 -/
 
