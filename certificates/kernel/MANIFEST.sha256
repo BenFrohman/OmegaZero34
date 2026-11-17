@@ -1,0 +1,16 @@
+# Kernel certificate manifest
+# source commit: 5997fcf6354ba2275697f89c7f37d72e6cf38d5d
+# lean-toolchain: leanprover/lean4:v4.30.0-rc1
+# Mathlib: 0c154d67103f74be3a0f2c509f72ccbf5be9f2a7 (lake-manifest.json; inputRev v4.30.0-rc1)
+# CI run: https://github.com/BenFrohman/OmegaZero34/actions/runs/43954562021
+# rebuild: git clone https://github.com/BenFrohman/OmegaZero34.git && cd OmegaZero34 && git checkout 5997fcf6354ba2275697f89c7f37d72e6cf38d5d && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+# verify: cd certificates/kernel && sha256sum -c MANIFEST.sha256
+96c33aed0e5762a419e459b2574b097678a6cb1618647630edffc9471c4f4b0f  CERTIFICATE.md
+ccb0c9d2f4acf56cc906990471ae12a849ef779b8829fe4812bf065888831b6b  KernelCertificateAudit.lean.txt
+bf88fb58688dfa858d4c3049edb4bebc6835767b62e5a5972c2f2492f02bb59b  axioms.raw.txt
+eeb6bba943a44582a0e0793ce3ed4ce30f71b6d5b854f69adffd50535c10e434  axioms.txt
+b935ff860e74a72355d90d5fa136b3cda2c2975255bb1e60b2ca2ad74ed35c1e  build.log
+c13773258c31e3670e576772abb6b4fcd6331a7a0780e139568befa308370137  environment.txt
+feca477e19b162a0515aa583d0df9c6efa6023ca0b2759d372b179b20e72bb03  leanchecker.txt
+31e973d20e2f3418b851c6582c8554511c3711892afa7fed7b08d146b7a620bf  modules.txt
+765d83bfe1a23e713600f1a7e7667b67b7ebf2737d97c35eb2cd79424194a620  sorry-scan.txt
