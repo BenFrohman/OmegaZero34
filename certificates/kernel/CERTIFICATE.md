@@ -5,17 +5,17 @@ This file records a reproducible machine check of the Lean 4 development in this
 | Item | Value |
 |---|---|
 | Repository | https://github.com/BenFrohman/OmegaZero34 |
-| Certified commit | `4395dbdac2bba743666327e5c18748d8c3a5848b` (branch `chore/kernel-certificate`) |
-| Lean sources | identical to `master` at `81773d59ecc676849f88388e109a59446a850cf5`: no `.lean`, lakefile, manifest or toolchain file differs; the certified commit only adds CI and the scripts in `certificates/tools/` |
+| Certified commit | `5997fcf6354ba2275697f89c7f37d72e6cf38d5d` (branch `master`) |
+| Lean sources | the certified commit is the `master` head itself; the certificate files were committed afterwards in a commit that changes no `.lean`, lakefile, manifest or toolchain file |
 | lean-toolchain | `leanprover/lean4:v4.30.0-rc1` |
 | Lean | Lean (version 4.30.0-rc1, x86_64-unknown-linux-gnu, commit 714601baf118066cbf3f282361339c6d06665b2a, Release) |
 | Mathlib | `0c154d67103f74be3a0f2c509f72ccbf5be9f2a7` (lake-manifest.json; inputRev `v4.30.0-rc1`) |
-| Date (UTC) | 2026-11-16T19:20:45Z |
-| CI run | https://github.com/BenFrohman/OmegaZero34/actions/runs/43937949238 |
-| `lake build` | `Build completed successfully (3297 jobs).` ([build.log](kernel/build.log)) |
-| sorry / admit / native_decide / axiom scan | `RESULT: 0 hits` ([sorry-scan.txt](kernel/sorry-scan.txt)) |
-| `#print axioms` | `AUDIT PASS: 160 theorems in 11 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)` ([axioms.txt](kernel/axioms.txt)) |
-| Kernel replay (leanchecker) | `RESULT: 12 of 12 modules replayed through the kernel, 0 failures` ([leanchecker.txt](kernel/leanchecker.txt)) |
+| Date (UTC) | 2026-11-16T20:55:26Z |
+| CI run | https://github.com/BenFrohman/OmegaZero34/actions/runs/43954562021 |
+| `lake build` | `Build completed successfully (3297 jobs).` ([build.log](build.log)) |
+| sorry / admit / native_decide / axiom scan | `RESULT: 0 hits` ([sorry-scan.txt](sorry-scan.txt)) |
+| `#print axioms` | `AUDIT PASS: 160 theorems in 11 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)` ([axioms.txt](axioms.txt)) |
+| Kernel replay (leanchecker) | `RESULT: 12 of 12 modules replayed through the kernel, 0 failures` ([leanchecker.txt](leanchecker.txt)) |
 
 ## What each check means
 
@@ -31,5 +31,5 @@ The axiom result says the listed theorems are proved from Lean's standard axioms
 ## Rebuild
 
 ```
-git clone https://github.com/BenFrohman/OmegaZero34.git && cd OmegaZero34 && git checkout 4395dbdac2bba743666327e5c18748d8c3a5848b && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+git clone https://github.com/BenFrohman/OmegaZero34.git && cd OmegaZero34 && git checkout 5997fcf6354ba2275697f89c7f37d72e6cf38d5d && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
 ```
